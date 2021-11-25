@@ -13,6 +13,7 @@ const ReportWrapper = styled.div`
 	@media ${device.tablet} {
 		flex-direction: row;
 		padding: 0 20px;
+		margin-bottom: 100px;
 	}
 `;
 
@@ -52,7 +53,7 @@ const ReportWrapperTitle = styled.h2`
 const ReportWrapperDesc = styled.div`
 	font-weight: 300;
 	line-height: 1;
-
+	color: #333333;
 	@media ${device.tablet} {
 		font-size: 24px;
 	}

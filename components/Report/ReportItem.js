@@ -7,6 +7,10 @@ const ItemContainer = styled.div`
 	position: relative;
 	padding-bottom: 56%;
 
+	@media ${device.tablet} {
+		padding-bottom: 80%;
+	}
+
 	&:after {
 		content: '';
 		display: block;
@@ -46,15 +50,26 @@ const ItemTitle = styled.div`
 `;
 
 const ItemCta = styled.button`
-	padding: 5px 15px;
+	padding: 10px 25px;
 	background-color: white;
-	border-radius: 5px;
+	border-radius: 3px;
 	color: #06a88e;
 	font-size: 15px;
 	font-weight: 500;
 	line-height: 1;
 	position: absolute;
 	bottom: 20px;
+	border: 1px solid #ffffff;
+
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+
+	&:hover {
+		background-color: #06a88e;
+		color: #ffffff;
+		border: 1px solid #06a88e;
+		transition: all 0.5s ease-in-out;
+	}
 `;
 
 const ReportItem = ({ data }) => {
@@ -69,7 +84,7 @@ const ReportItem = ({ data }) => {
 				<ItemSection>Section {data.section}</ItemSection>
 				<ItemTitle>{data.metaData.title}</ItemTitle>
 				<Link href={`/report/${data.id}`} passHref>
-					<ItemCta>CTA</ItemCta>
+					<ItemCta>Read now</ItemCta>
 				</Link>
 			</ItemContent>
 		</ItemContainer>
