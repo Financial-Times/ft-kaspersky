@@ -81,6 +81,10 @@ font-family: MetricWeb,sans-serif;
       color: black;
     }
   }
+
+  .o-footer {
+    margin: 0;
+  }
           
 `;
 export default function Page({ children }) {
@@ -90,7 +94,7 @@ export default function Page({ children }) {
 			<Header />
 			<Disclaimer />
 			{children}
-			<BTTButton />
+			{/* <BTTButton /> */}
 			<Footer />
 		</>
 	);
