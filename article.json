@@ -1,0 +1,111 @@
+[
+	{
+		"id": "article-one",
+		"ctaText": "EXPLORE LUXURY HOTELS IN SINGAPORE",
+		"time": 3,
+		"article": "one",
+		"metaData": {
+			"title": "article 1",
+			"desc": "The aesthetic charms of this singular city-state go beyond its world-class collections of contemporary Asian and 20th-century European art to encompass novel ways of experiencing culture",
+			"contentType": "article",
+			"publicationDate": "2021-10-25",
+			"campaignName": "Burst 1",
+			"advertiserName": "Marriott Group",
+			"primaryIndustryAdvertiser": "Hotels",
+			"contentAuthor": "AlphaGrid",
+			"brandedContent": true,
+			"contentStyle": "brand focussed",
+			"primaryTopic": "Life_&_Arts",
+			"secondaryTopic": "Travel",
+			"adbookId": 314383,
+			"hasVideo": false,
+			"videoStyle": null,
+			"pageDesignType": "bespoke",
+			"articleImage": "https://ft.com/partnercontent/marriott-bonvoy/article-01/hero.webp",
+			"articleUrl": "https://marriott-bonvoy.ft.com/article/singapore"
+		},
+		"content": [
+			{
+				"id": 0,
+				"type": "content",
+				"data": {
+					"hasDropCap": true,
+					"content": "<p>Giant brushstrokes of lacquered steel twirl rich cultural identity.</p>"
+				}
+			}
+		]
+	},
+	{
+		"id": "article-two",
+		"ctaText": "EXPLORE LUXURY HOTELS IN HONG KONG",
+		"time": 3,
+		"article": "two",
+		"metaData": {
+			"title": "article 2",
+			"desc": "For centuries, history and fate have conspired to make Hong Kong a vital maritime link in the trade routes connecting East and West — a cosmopolitan harbour that has witnessed the endless movement of myriad peoples, precious cargo, culture and ideas",
+			"contentType": "article",
+			"publicationDate": "2021-10-25",
+			"campaignName": "Burst 1",
+			"advertiserName": "Marriott Group",
+			"primaryIndustryAdvertiser": "Luxury Goods",
+			"contentAuthor": "client",
+			"brandedContent": true,
+			"contentStyle": "brand focussed",
+			"primaryTopic": "Life_&_Arts",
+			"secondaryTopic": "Travel",
+			"adbookId": 314383,
+			"hasVideo": false,
+			"videoStyle": null,
+			"pageDesignType": "bespoke",
+			"articleImage": "https://ft.com/partnercontent/marriott-bonvoy/article-02/article-hero-amend.webp",
+			"articleUrl": "https://marriott-bonvoy.ft.com/article/hong-kong"
+		},
+		"content": [
+			{
+				"id": 3,
+				"type": "image",
+				"data": {
+					"src": "https://ft.com/partnercontent/marriott-bonvoy/article-02/article-02-amend.webp",
+					"caption": "Sicilian-raised Angelo Aglianó on the pass at The Ritz-Carlton, Hong Kong’s Tosca di Angelo restaurant",
+					"large": false
+				}
+			}
+		]
+	},
+	{
+		"id": "article-three",
+		"ctaText": "EXPLORE LUXURY HOTELS IN HONG KONG",
+		"time": 6,
+		"article": "three",
+		"metaData": {
+			"title": "article 3",
+			"desc": "On the face of it, Tokyo and Kyoto are worlds apart — the contemporary capital representing sky-scraping clamour, the historic centre promising hieratic calm — yet Japanese tradition has a way of shining through amid the neon streets",
+			"contentType": "article",
+			"publicationDate": "2021-10-25",
+			"campaignName": "Burst 1",
+			"advertiserName": "Marriott Group",
+			"primaryIndustryAdvertiser": "Luxury Goods",
+			"contentAuthor": "client",
+			"brandedContent": true,
+			"contentStyle": "brand focussed",
+			"primaryTopic": "Life_&_Arts",
+			"secondaryTopic": "Travel",
+			"adbookId": 314383,
+			"hasVideo": false,
+			"videoStyle": null,
+			"pageDesignType": "bespoke",
+			"articleImage": "https://ft.com/partnercontent/marriott-bonvoy/article-03/A3-00.webp",
+			"articleUrl": "https://marriott-bonvoy.ft.com/article/japan"
+		},
+		"content": [
+			{
+				"id": 0,
+				"type": "content",
+				"data": {
+					"hasDropCap": true,
+					"content": "<p></p>"
+				}
+			}
+		]
+	}
+]
