@@ -58,11 +58,11 @@ const IntroductionDescription = styled.div`
 	&:after {
 		content: '';
 		display: block;
-		width: 100vw;
+		width: 110vw;
 		position: absolute;
 		height: 50%;
 		background-color: #7eff33;
-		left: -30%;
+		left: -10%;
 		z-index: -1;
 	}
 `;
