@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-font-family: MetricWeb,sans-serif;
+    font-family: MetricWeb,sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;

@@ -16,6 +16,10 @@ import ArticleContainer from '~/components/Articles/ArticleContainer';
 import Follow from '~/components/Follow';
 
 const Introduction = styled.div`
+	overflow-x: hidden;
+`;
+
+const Wrapper = styled.div`
 	max-width: 1220px;
 	padding: 5px;
 	margin: 0 auto;
@@ -83,24 +87,28 @@ export default function Home({ reportData, articleData }) {
 	return (
 		<>
 			<Head>
-				<title>Kaspersky</title>
+				<title>
+					Kaspersky - Financial Times - Partner Content by Marriott-Bonvey
+				</title>
 				<Metadata title={true} data={null} />
 			</Head>
 			<HeroBanner title={'Campaign Title goes here'} />
 			<Introduction>
-				<IntroductionContentWrapper>
-					<IntroductionContent>
-						<IntroductionTitle>Introduction</IntroductionTitle>
-						<IntroductionDescription>
-							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-							erat, sed diam voluptua. At vero eos et accusam et justo duo
-							dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-							sanctus est Lorem ipsum dolor sit amet in secular.
-						</IntroductionDescription>
-					</IntroductionContent>
-					<IntroductionImageWrapper></IntroductionImageWrapper>
-				</IntroductionContentWrapper>
+				<Wrapper>
+					<IntroductionContentWrapper>
+						<IntroductionContent>
+							<IntroductionTitle>Introduction</IntroductionTitle>
+							<IntroductionDescription>
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+								diam nonumy eirmod tempor invidunt ut labore et dolore magna
+								aliquyam erat, sed diam voluptua. At vero eos et accusam et
+								justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+								takimata sanctus est Lorem ipsum dolor sit amet in secular.
+							</IntroductionDescription>
+						</IntroductionContent>
+						<IntroductionImageWrapper></IntroductionImageWrapper>
+					</IntroductionContentWrapper>
+				</Wrapper>
 			</Introduction>
 			<ReportContainer data={reportData} />
 			<ArticleContainer data={articleData} />
