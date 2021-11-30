@@ -1,19 +1,22 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-
 import styled from 'styled-components';
 
 import FtAnalytics from '~/config/FtAnalytics';
 import FtEvents from '~/config/FtEvents';
 import { ARTICLE_URL, REPORT_URL } from '~/config/utils';
+
 import Metadata from '~/components/Metadata';
 import Content from '~/components/Content';
+import { device } from '~/config/utils';
+import HeroBanner from '~/components/HeroBanner';
+import Quote from '~/components/Quote';
+import Home from '~/components/Home';
 
 const ArticleWrapper = styled.div``;
-const ArticleTitle = styled.div`
-	font-family: MetricWeb, sans-serif;
-`;
+
+const ArticleTitle = styled.div``;
 
 export default function ArticlePage({ post, related }) {
 	useEffect(() => {
@@ -38,9 +41,11 @@ export default function ArticlePage({ post, related }) {
 		};
 
 		window.addEventListener('load', function () {
-			console.log('loaded');
 			if (hasConsentedToBehaviouralAds()) {
-				permutive.consent({ opt_in: true, token: 'behaviouraladsOnsite:on' });
+				window.permutive.consent({
+					opt_in: true,
+					token: 'behaviouraladsOnsite:on',
+				});
 			} else {
 				const cookieContainer = document.querySelector('.o-cookie-message');
 				const cookieButton =
@@ -48,7 +53,10 @@ export default function ArticlePage({ post, related }) {
 					document.querySelector('.o-cookie-message__button');
 				console.log(cookieButton);
 				cookieButton.addEventListener('click', (e) => {
-					permutive.consent({ opt_in: true, token: 'behaviouraladsOnsite:on' });
+					window.permutive.consent({
+						opt_in: true,
+						token: 'behaviouraladsOnsite:on',
+					});
 					console.log('clicked');
 				});
 			}
@@ -80,16 +88,16 @@ export default function ArticlePage({ post, related }) {
 					src="https://e1c3fd73-dd41-4abd-b80b-4278d52bf7aa.edge.permutive.app/e1c3fd73-dd41-4abd-b80b-4278d52bf7aa-web.js"
 				></Script>
 			</Head>
-
+			<HeroBanner title={post.metaData.title} />
+			<Home title={post.metaData.title} />
 			<ArticleWrapper className="articleWrapper">
 				{/* <ReadTime time={post.time} /> */}
-				<ArticleTitle>{post.metaData.title}</ArticleTitle>
 				{post.content.map((el) => {
 					switch (el.type) {
 						case 'content':
 							return <Content key={el.id} id={el.id} data={el.data} />;
-						case 'cta':
-						// return <ArticleCta key={el.id} data={el.data} />;
+						case 'quote':
+							return <Quote key={el.id} data={el.data} />;
 					}
 				})}
 			</ArticleWrapper>

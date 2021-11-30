@@ -15,7 +15,7 @@ const ContentText = styled.div`
 		color: #000000;
 		font-size: 48px;
 		margin: 5px 15px 10px 0;
-		background-color: red;
+		background-color: #7eff33;
 		line-height: 1;
 		padding: 10px 20px;
 		@media ${device.tablet} {
