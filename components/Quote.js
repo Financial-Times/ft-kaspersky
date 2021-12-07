@@ -61,7 +61,7 @@ const Quote = ({ data }) => {
 		<Container>
 			<Wrapper>
 				<Content>{data.content}</Content>
-				<Author>- {data.author}</Author>
+				<Author>{data.author}</Author>
 			</Wrapper>
 		</Container>
 	);

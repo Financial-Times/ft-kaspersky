@@ -13,12 +13,14 @@ import { device } from '~/config/utils';
 import HeroBanner from '~/components/HeroBanner';
 import Quote from '~/components/Quote';
 import Home from '~/components/Home';
+import Sources from '~/components/Sources';
+import Cta from '~/components/Cta';
 
 const ArticleWrapper = styled.div``;
 
 const ArticleTitle = styled.div``;
 
-export default function ArticlePage({ post, related }) {
+export default function ArticlePage({ post, related, articles }) {
 	useEffect(() => {
 		FtEvents();
 		FtAnalytics();
@@ -34,11 +36,12 @@ export default function ArticlePage({ post, related }) {
 			const re = new RegExp(`${cookieKey}=([^;]+)`);
 			const match = document.cookie.match(re);
 			if (!match) {
-				// cookie stasis or no cookie found
 				return false;
 			}
 			return decodeURIComponent(match[1]);
 		};
+
+		const relatedItems = related.concat(articles);
 
 		window.addEventListener('load', function () {
 			if (hasConsentedToBehaviouralAds()) {
@@ -98,6 +101,10 @@ export default function ArticlePage({ post, related }) {
 							return <Content key={el.id} id={el.id} data={el.data} />;
 						case 'quote':
 							return <Quote key={el.id} data={el.data} />;
+						case 'notes':
+							return <Sources key={el.id} data={el.data} />;
+						case 'cta':
+							return <Cta key={el.id} data={el.data} />;
 					}
 				})}
 			</ArticleWrapper>
@@ -116,12 +123,15 @@ export async function getStaticProps({ params }) {
 	const results = await fetch(REPORT_URL);
 	const reports = await results.json();
 
+	const fetchArticles = await fetch(ARTICLE_URL);
+	const articles = await fetchArticles.json();
+
 	const post = reports.find((article) => article.id === params.slug);
 	const related = reports.filter((article) => {
 		return article.id != params.slug;
 	});
 
 	return {
-		props: { post, related },
+		props: { post, related, articles },
 	};
 }
