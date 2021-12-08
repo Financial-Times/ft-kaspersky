@@ -1,14 +1,26 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-
 import styled from 'styled-components';
 
 import FtAnalytics from '~/config/FtAnalytics';
 import FtEvents from '~/config/FtEvents';
-import { ARTICLE_URL } from '~/config/utils';
+import { ARTICLE_URL, REPORT_URL } from '~/config/utils';
 
-export default function ArticlePage({ post, related }) {
+import Metadata from '~/components/Metadata';
+import Content from '~/components/Content';
+import { device } from '~/config/utils';
+import HeroBanner from '~/components/HeroBanner';
+import Quote from '~/components/Quote';
+import Home from '~/components/Home';
+import Sources from '~/components/Sources';
+import Cta from '~/components/Cta';
+
+const ArticleWrapper = styled.div``;
+
+const ArticleTitle = styled.div``;
+
+export default function ArticlePage({ post, related, articles }) {
 	useEffect(() => {
 		FtEvents();
 		FtAnalytics();
@@ -24,16 +36,19 @@ export default function ArticlePage({ post, related }) {
 			const re = new RegExp(`${cookieKey}=([^;]+)`);
 			const match = document.cookie.match(re);
 			if (!match) {
-				// cookie stasis or no cookie found
 				return false;
 			}
 			return decodeURIComponent(match[1]);
 		};
 
+		const relatedItems = related.concat(articles);
+
 		window.addEventListener('load', function () {
-			console.log('loaded');
 			if (hasConsentedToBehaviouralAds()) {
-				permutive.consent({ opt_in: true, token: 'behaviouraladsOnsite:on' });
+				window.permutive.consent({
+					opt_in: true,
+					token: 'behaviouraladsOnsite:on',
+				});
 			} else {
 				const cookieContainer = document.querySelector('.o-cookie-message');
 				const cookieButton =
@@ -41,7 +56,10 @@ export default function ArticlePage({ post, related }) {
 					document.querySelector('.o-cookie-message__button');
 				console.log(cookieButton);
 				cookieButton.addEventListener('click', (e) => {
-					permutive.consent({ opt_in: true, token: 'behaviouraladsOnsite:on' });
+					window.permutive.consent({
+						opt_in: true,
+						token: 'behaviouraladsOnsite:on',
+					});
 					console.log('clicked');
 				});
 			}
@@ -51,9 +69,9 @@ export default function ArticlePage({ post, related }) {
 	return (
 		<>
 			<Head>
-				<title>{post.title}</title>
+				<title>{post.metaData.title}</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				{/* <Metadata data={post.metaData} /> */}
+				<Metadata data={post.metaData} />
 				<Script
 					dangerouslySetInnerHTML={{
 						__html: `
@@ -61,7 +79,9 @@ export default function ArticlePage({ post, related }) {
           window.googletag = window.googletag || {}, window.googletag.cmd = window.googletag.cmd || [], window.googletag.cmd.push(function () { if (0 === window.googletag.pubads().getTargeting("permutive").length) { var g = window.localStorage.getItem("_pdfps"); window.googletag.pubads().setTargeting("permutive", g ? JSON.parse(g) : []) } });
           window.permutive.addon('web', {
             page: {
-              type: 'Partner Content ${post.metaData.hasVideo ? 'Video' : 'Article'}',
+              type: 'Partner Content ${
+								post.metaData.hasVideo ? 'Video' : 'Article'
+							}',
             }
           });`,
 					}}
@@ -71,6 +91,23 @@ export default function ArticlePage({ post, related }) {
 					src="https://e1c3fd73-dd41-4abd-b80b-4278d52bf7aa.edge.permutive.app/e1c3fd73-dd41-4abd-b80b-4278d52bf7aa-web.js"
 				></Script>
 			</Head>
+			<HeroBanner title={post.metaData.title} />
+			<Home title={post.metaData.title} />
+			<ArticleWrapper className="articleWrapper">
+				{/* <ReadTime time={post.time} /> */}
+				{post.content.map((el) => {
+					switch (el.type) {
+						case 'content':
+							return <Content key={el.id} id={el.id} data={el.data} />;
+						case 'quote':
+							return <Quote key={el.id} data={el.data} />;
+						case 'notes':
+							return <Sources key={el.id} data={el.data} />;
+						case 'cta':
+							return <Cta key={el.id} data={el.data} />;
+					}
+				})}
+			</ArticleWrapper>
 		</>
 	);
 }
@@ -83,15 +120,18 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params }) {
-	const results = await fetch(ARTICLE_URL);
-	const articles = await results.json();
+	const results = await fetch(REPORT_URL);
+	const reports = await results.json();
 
-	const post = articles.find((article) => article.id === params.slug);
-	const related = articles.filter((article) => {
+	const fetchArticles = await fetch(ARTICLE_URL);
+	const articles = await fetchArticles.json();
+
+	const post = reports.find((article) => article.id === params.slug);
+	const related = reports.filter((article) => {
 		return article.id != params.slug;
 	});
 
 	return {
-		props: { post, related },
+		props: { post, related, articles },
 	};
 }

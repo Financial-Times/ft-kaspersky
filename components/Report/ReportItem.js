@@ -81,7 +81,7 @@ const ReportItem = ({ data }) => {
 				alt="report item image"
 			/>
 			<ItemContent>
-				<ItemSection>Section {data.section}</ItemSection>
+				<ItemSection>{data.section}</ItemSection>
 				<ItemTitle>{data.metaData.title}</ItemTitle>
 				<Link href={`/report/${data.id}`} passHref>
 					<ItemCta>Read now</ItemCta>

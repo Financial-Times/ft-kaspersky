@@ -26,14 +26,15 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-font-family: MetricWeb,sans-serif;
+    font-family: MetricWeb,sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
     line-height:2;
   }
   a {
-    color: #00953d;
+    color: #06A88E;
+    font-weight: 600;
     text-decoration: none;
 
   }
@@ -49,22 +50,22 @@ font-family: MetricWeb,sans-serif;
   }
 
   
-  h1 {
-    font-family: MetricWeb,sans-serif;
-    color: #009b3a;
-    line-height: 1.3;
-    font-weight: 400;
-    font-size: 25px;
-    margin-top: 0;
-    padding-top: 10px;
+  h2 {
+ 	font-family: MetricWeb, sans-serif;
+	color: #06a88e;
+	text-transform: uppercase;
+	line-height: 1;
+  font-weight: 300;
+  margin: 30px 0;
 
-    @media ${device.tablet} {
-        font-size: 30px;
-      }
+	@media ${device.tablet} {
+		font-size: 48px;
+	}
   }
   p {
     font-family: MetricWeb,sans-serif;
     color: #333333;
+    font-size: 20px;
     line-height: 1.6;
     font-weight: 400;
   }
