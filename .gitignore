@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+.idea/ft-kaspersky.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+.idea/workspace.xml
