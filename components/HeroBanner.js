@@ -64,10 +64,13 @@ const HeroScrollText = styled.span`
 	font-weight: 500;
 `;
 
-const HeroBanner = ({ title }) => {
+const HeroDesc = styled.div``;
+
+const HeroBanner = ({ title, desc }) => {
 	return (
 		<HeroContainer>
 			<HeroContent>{title}</HeroContent>
+			{desc && <HeroDesc>{desc}</HeroDesc>}
 			<HeroScrollContainer>
 				<HeroScrollImage src={scrollImg.src} />
 				<HeroScrollText>Scroll</HeroScrollText>
