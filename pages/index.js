@@ -50,6 +50,7 @@ const AccordionWrapper = styled.div`
 
 			@media ${device.tablet} {
 				font-size: 50px;
+				padding: 20px;
 			}
 
 			span {
