@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Script from 'next/script';
 import styled from 'styled-components';
 
@@ -18,7 +19,35 @@ import Cta from '~/components/Cta';
 
 const ArticleWrapper = styled.div``;
 
-const ArticleTitle = styled.div``;
+const ArticleTitle = styled.div`
+	max-width: 883px;
+	margin: 0 auto;
+	padding: 10px;
+
+	text-align: left;
+	font-size: 48px;
+	letter-spacing: 0px;
+	color: #06a88e;
+	text-transform: uppercase;
+	line-height: 1;
+
+	@media ${device.tablet} {
+		padding: 15px 0 40px 0;
+	}
+`;
+
+const HeroImgWrapper = styled.div`
+	position: relative;
+	display: block;
+	padding-bottom: 23.4375%;
+	@media ${device.tablet} {
+	}
+
+	img {
+		object-fit: cover;
+		object-position: bottom;
+	}
+`;
 
 export default function ArticlePage({ post, related, articles }) {
 	useEffect(() => {
@@ -91,9 +120,18 @@ export default function ArticlePage({ post, related, articles }) {
 					src="https://e1c3fd73-dd41-4abd-b80b-4278d52bf7aa.edge.permutive.app/e1c3fd73-dd41-4abd-b80b-4278d52bf7aa-web.js"
 				></Script>
 			</Head>
-			<HeroBanner title={post.metaData.title} />
+			<HeroImgWrapper>
+				<Image
+					src={post.metaData.articleImage}
+					alt={'hero image'}
+					layout="fill"
+				/>
+			</HeroImgWrapper>
 			<Home title={post.metaData.title} />
 			<ArticleWrapper className="articleWrapper">
+				<ArticleTitle>
+					{post.section}: {post.metaData.title}
+				</ArticleTitle>
 				{/* <ReadTime time={post.time} /> */}
 				{post.content.map((el) => {
 					switch (el.type) {

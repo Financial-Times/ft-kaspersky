@@ -4,11 +4,11 @@ import home from '~/assets/home.svg';
 import { device } from '~/config/utils';
 
 const Container = styled.div`
-	max-width: 883px;
+	max-width: 1220px;
 	margin: 0 auto;
 	padding: 10px;
 	@media ${device.tablet} {
-		padding: 15px 0 40px 0;
+		padding: 15px 20px 40px 20px;
 	}
 `;
 
