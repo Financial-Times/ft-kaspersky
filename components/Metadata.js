@@ -3,7 +3,7 @@ const Metadata = ({ data, title }) => {
 		<>
 			{title ? null : (
 				<title>
-					{data.title} - Financial Times - Partner Content by IDA Ireland
+					{data.title} - Financial Times - Partner Content by Kaspersky
 				</title>
 			)}
 

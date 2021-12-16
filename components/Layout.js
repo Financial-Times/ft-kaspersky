@@ -33,9 +33,9 @@ const GlobalStyles = createGlobalStyle`
     line-height:2;
   }
   a {
-    color: #06A88E;
-    font-weight: 600;
-    text-decoration: none;
+    color: #265951;
+    font-weight: 500;
+    text-decoration: underline;
 
   }
   a:hover {

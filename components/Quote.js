@@ -6,6 +6,34 @@ import q2 from '~/assets/q2.svg';
 const Container = styled.div`
 	max-width: 883px;
 	margin: 0 auto;
+	padding: 20px 0;
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		background-color: #707070;
+		top: 0;
+		left: 0;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		background-color: #707070;
+		bottom: 0;
+		left: 0;
+	}
+
+	@media ${device.tablet} {
+		padding: 40px 0;
+	}
 `;
 
 const Wrapper = styled.div`
@@ -52,8 +80,13 @@ const Content = styled.div`
 	}
 `;
 const Author = styled.div`
-	text-align: center;
-	font-style: italic;
+	text-align: left;
+	font-size: 20px;
+	line-height: 1;
+	text-transform: uppercase;
+	@media ${device.tablet} {
+		padding: 0 35px;
+	}
 `;
 
 const Quote = ({ data }) => {
@@ -61,7 +94,7 @@ const Quote = ({ data }) => {
 		<Container>
 			<Wrapper>
 				<Content>{data.content}</Content>
-				<Author>{data.author}</Author>
+				<Author>- {data.author}</Author>
 			</Wrapper>
 		</Container>
 	);

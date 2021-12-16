@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 import { device } from '~/config/utils';
 
@@ -17,6 +18,13 @@ const HeroContainer = styled.div`
 		height: 100%;
 		background-color: rgba(0, 0, 0, 0.2);
 	}
+
+	img {
+		&[alt='hero'] {
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
 `;
 const HeroContent = styled.div`
 	font-family: museo-sans, sans-serif;
@@ -26,7 +34,7 @@ const HeroContent = styled.div`
 	color: white;
 	z-index: 2;
 	line-height: 1;
-	transform: translate(50%, -80%);
+	transform: translate(50%, -60%);
 
 	width: 100%;
 	max-width: 800px;
@@ -62,15 +70,6 @@ const HeroScrollImage = styled.img`
 	}
 `;
 
-const HeroScrollText = styled.span`
-	font-family: museo-sans, sans-serif;
-	color: white;
-	text-transform: uppercase;
-	font-size: 20px;
-	line-height: 1;
-	font-weight: 500;
-`;
-
 const HeroDesc = styled.div`
 	font-size: 28px;
 
@@ -79,9 +78,10 @@ const HeroDesc = styled.div`
 	}
 `;
 
-const HeroBanner = ({ title, desc }) => {
+const HeroBanner = ({ title, desc, img }) => {
 	return (
 		<HeroContainer>
+			<Image src={img} alt="hero" layout="fill" />
 			<HeroContent>
 				<HeroTitle>{title}</HeroTitle>
 				{desc && <HeroDesc>{desc}</HeroDesc>}

@@ -8,7 +8,7 @@ const ItemContainer = styled.div`
 	padding-bottom: 56%;
 
 	@media ${device.tablet} {
-		padding-bottom: 80%;
+		padding-bottom: 100%;
 	}
 
 	&:after {
@@ -21,6 +21,13 @@ const ItemContainer = styled.div`
 		width: 100%;
 		background-color: rgba(0, 0, 0, 0.3);
 	}
+
+	img {
+		&[alt='reportImage'] {
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
 `;
 const ItemContent = styled.div`
 	position: absolute;
@@ -31,13 +38,21 @@ const ItemContent = styled.div`
 	padding: 20px;
 `;
 const ItemSection = styled.div`
-	font-weight: 600;
-	font-size: 16px;
+	font-size: 12px;
 	text-transform: uppercase;
 	line-height: 1;
+	background-color: #7eff33;
+	border-radius: 3px;
+	color: black;
+	display: inline;
+	padding: 5px 10px;
 
 	@media ${device.tablet} {
 		margin-bottom: 20px;
+	}
+
+	span {
+		font-weight: 600;
 	}
 `;
 
@@ -48,6 +63,8 @@ const ItemTitle = styled.div`
 		font-size: 36px;
 	}
 `;
+
+const ItemContentWrapper = styled.div``;
 
 const ItemCta = styled.button`
 	padding: 10px 25px;
@@ -75,17 +92,17 @@ const ItemCta = styled.button`
 const ReportItem = ({ data }) => {
 	return (
 		<ItemContainer>
-			<Image
-				src={data.metaData.articleImage}
-				layout="fill"
-				alt="report item image"
-			/>
+			<Image src={data.metaData.articleImage} layout="fill" alt="reportImage" />
 			<ItemContent>
-				<ItemSection>{data.section}</ItemSection>
+				<ItemSection>
+					Section <span>{data.section}</span>
+				</ItemSection>
+				<ItemContentWrapper>
+					<Link href={`/report/${data.id}`} passHref>
+						<ItemCta>Read now</ItemCta>
+					</Link>
+				</ItemContentWrapper>
 				<ItemTitle>{data.metaData.title}</ItemTitle>
-				<Link href={`/report/${data.id}`} passHref>
-					<ItemCta>Read now</ItemCta>
-				</Link>
 			</ItemContent>
 		</ItemContainer>
 	);

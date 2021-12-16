@@ -27,4 +27,3 @@ export const device = {
 
 export const ARTICLE_URL = `https://ft.com/partnercontent/kaspersky/article.json?ts=${ts}`;
 export const REPORT_URL = `https://ft.com/partnercontent/kaspersky/report.json?ts=${ts}`;
-export const HOMEPAGE_URL = `https://www.ft.com/partnercontent/ida/homepage.json?ts=${ts}`;

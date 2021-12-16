@@ -19,6 +19,7 @@ import ReportContainer from '~/components/Report/ReportContainer';
 
 import ArticleContainer from '~/components/Articles/ArticleContainer';
 import Follow from '~/components/Follow';
+import Quote from '~/components/Quote';
 
 const Introduction = styled.div``;
 
@@ -91,6 +92,12 @@ const AccordionContainer = styled.div`
 		font-size: 24px;
 		line-height: 1;
 	}
+
+	ul {
+		list-style: decimal;
+		padding-left: 20px;
+		font-size: 24px;
+	}
 `;
 
 const AccordionImage = styled.div`
@@ -121,6 +128,7 @@ export default function Home({ reportData, articleData }) {
 				<Metadata title={true} data={null} />
 			</Head>
 			<HeroBanner
+				img={'https://ft.com/partnercontent/kaspersky/images/HubHero.jpg'}
 				title={'Three steps to superior cyber security'}
 				desc={
 					'New research from Kaspersky shows that diversity, collaboration and training can help protect enterprise from major cyber threats.'
@@ -200,9 +208,7 @@ export default function Home({ reportData, articleData }) {
 							<AccordionItemHeading>
 								<AccordionItemButton>
 									<span>0.3</span>
-									<div className="heading">
-										The threat of cyber security weighs heavily on enterprises
-									</div>
+									<div className="heading">Enterprises are not prepared</div>
 								</AccordionItemButton>
 							</AccordionItemHeading>
 							<AccordionItemPanel>
@@ -226,17 +232,27 @@ export default function Home({ reportData, articleData }) {
 										financial resources to recruit or consult skilled security
 										professionals.
 									</p>
+									<Quote
+										data={{
+											content:
+												'Every day, something changes: there’s a newer, better virus; there’s a new technique; a new modus operandi. It’s impossible to keep up with everything, and that’s frightening for everyone.',
+											author: 'Shawnee Delaney, CEO, Vaillance Group.',
+										}}
+									/>
 									<p>
 										The risk is real, and companies are not prepared. What can
-										they do? Kaspersky’s research shows three things they can
-										change for better security outcomes:
+										they do?
+									</p>
+									<p>
+										Kaspersky’s research shows three things they can change for
+										better security outcomes:
 									</p>
 									<ul>
-										<li>1. Make cyber security teams more diverse</li>
+										<li>Make cyber security teams more diverse</li>
 										<li>
-											2. Closely integrate the C-suite with cyber security teams
+											Closely integrate the C-suite with cyber security teams
 										</li>
-										<li>3. Invest in high-quality cyber security training</li>
+										<li>Invest in high-quality cyber security training</li>
 									</ul>
 								</AccordionContainer>
 							</AccordionItemPanel>

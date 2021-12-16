@@ -16,7 +16,6 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 0 10px;
 `;
 const HomeImg = styled.img`
 	margin-right: 10px;

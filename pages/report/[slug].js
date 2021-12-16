@@ -11,11 +11,11 @@ import { ARTICLE_URL, REPORT_URL } from '~/config/utils';
 import Metadata from '~/components/Metadata';
 import Content from '~/components/Content';
 import { device } from '~/config/utils';
-import HeroBanner from '~/components/HeroBanner';
 import Quote from '~/components/Quote';
 import Home from '~/components/Home';
 import Sources from '~/components/Sources';
 import Cta from '~/components/Cta';
+import Graph from '~/components/Graph';
 
 const ArticleWrapper = styled.div``;
 
@@ -39,13 +39,13 @@ const ArticleTitle = styled.div`
 const HeroImgWrapper = styled.div`
 	position: relative;
 	display: block;
-	padding-bottom: 23.4375%;
+	padding-bottom: 43.4375%;
 	@media ${device.tablet} {
 	}
 
 	img {
 		object-fit: cover;
-		object-position: bottom;
+		object-position: top;
 	}
 `;
 
@@ -143,6 +143,8 @@ export default function ArticlePage({ post, related, articles }) {
 							return <Sources key={el.id} data={el.data} />;
 						case 'cta':
 							return <Cta key={el.id} data={el.data} />;
+						case 'graph':
+							return <Graph key={el.id} data={el.data} />;
 					}
 				})}
 			</ArticleWrapper>
