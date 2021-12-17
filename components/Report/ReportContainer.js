@@ -22,8 +22,8 @@ const ReportWrapperContent = styled.div`
 	flex-basis: 100%;
 
 	@media ${device.tablet} {
-		flex-basis: 35%;
-		max-width: 35%;
+		flex-basis: 23%;
+		max-width: 23%;
 		padding-right: 30px;
 	}
 `;
@@ -69,8 +69,8 @@ const ReportItemContainer = styled.div`
 	flex-basis: 100%;
 
 	@media ${device.tablet} {
-		flex-basis: 65%;
-		max-width: 65%;
+		flex-basis: 77%;
+		max-width: 77%;
 	}
 `;
 

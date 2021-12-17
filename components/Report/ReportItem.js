@@ -8,7 +8,7 @@ const ItemContainer = styled.div`
 	padding-bottom: 56%;
 
 	@media ${device.tablet} {
-		padding-bottom: 100%;
+		padding-bottom: 120%;
 	}
 
 	&:after {
@@ -59,12 +59,16 @@ const ItemSection = styled.div`
 const ItemTitle = styled.div`
 	text-transform: uppercase;
 	line-height: 1;
+	margin-bottom: 50px;
 	@media ${device.tablet} {
 		font-size: 36px;
 	}
 `;
 
-const ItemContentWrapper = styled.div``;
+const ItemContentWrapper = styled.div`
+	position: absolute;
+	bottom: 30px;
+`;
 
 const ItemCta = styled.button`
 	padding: 10px 25px;
@@ -74,8 +78,7 @@ const ItemCta = styled.button`
 	font-size: 15px;
 	font-weight: 500;
 	line-height: 1;
-	position: absolute;
-	bottom: 20px;
+
 	border: 1px solid #ffffff;
 
 	cursor: pointer;
@@ -98,11 +101,12 @@ const ReportItem = ({ data }) => {
 					Section <span>{data.section}</span>
 				</ItemSection>
 				<ItemContentWrapper>
+					<ItemTitle>{data.metaData.title}</ItemTitle>
+
 					<Link href={`/report/${data.id}`} passHref>
 						<ItemCta>Read now</ItemCta>
 					</Link>
 				</ItemContentWrapper>
-				<ItemTitle>{data.metaData.title}</ItemTitle>
 			</ItemContent>
 		</ItemContainer>
 	);
