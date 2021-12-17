@@ -16,6 +16,7 @@ import Home from '~/components/Home';
 import Sources from '~/components/Sources';
 import Cta from '~/components/Cta';
 import Graph from '~/components/Graph';
+import StandFirst from '~/components/StandFirst';
 
 const ArticleWrapper = styled.div``;
 
@@ -32,7 +33,7 @@ const ArticleTitle = styled.div`
 	line-height: 1;
 
 	@media ${device.tablet} {
-		padding: 15px 0 40px 0;
+		padding: 15px 10px;
 	}
 `;
 
@@ -127,11 +128,9 @@ export default function ArticlePage({ post, related, articles }) {
 					layout="fill"
 				/>
 			</HeroImgWrapper>
-			<Home title={post.metaData.title} />
+			<Home title={post.section} />
 			<ArticleWrapper className="articleWrapper">
-				<ArticleTitle>
-					{post.section}: {post.metaData.title}
-				</ArticleTitle>
+				<ArticleTitle>{post.metaData.title}</ArticleTitle>
 				{/* <ReadTime time={post.time} /> */}
 				{post.content.map((el) => {
 					switch (el.type) {
@@ -145,6 +144,8 @@ export default function ArticlePage({ post, related, articles }) {
 							return <Cta key={el.id} data={el.data} />;
 						case 'graph':
 							return <Graph key={el.id} data={el.data} />;
+						case 'standFirst':
+							return <StandFirst key={el.id} data={el.data} />;
 					}
 				})}
 			</ArticleWrapper>
