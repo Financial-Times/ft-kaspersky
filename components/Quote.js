@@ -77,6 +77,7 @@ const Content = styled.div`
 	@media ${device.tablet} {
 		font-size: 36px;
 		padding: 0 35px;
+		margin-bottom: 40px;
 	}
 `;
 const Author = styled.div`

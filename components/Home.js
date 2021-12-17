@@ -53,7 +53,7 @@ const Home = ({ title }) => {
 					</ContentBack>
 					<ContentTitle>
 						<span>/</span>
-						{title}
+						Section {title}
 					</ContentTitle>
 				</Content>
 			</Wrapper>
