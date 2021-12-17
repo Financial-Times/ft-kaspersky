@@ -5,6 +5,7 @@ const Container = styled.div`
 	max-width: 1220px;
 	margin: 0 auto;
 	padding: 10px;
+	background-color: #7eff33;
 `;
 
 const Graph = ({ data }) => {
