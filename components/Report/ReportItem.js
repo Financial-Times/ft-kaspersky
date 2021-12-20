@@ -94,9 +94,9 @@ const ItemCta = styled.button`
 
 const ReportItem = ({ data }) => {
 	return (
-		<ItemContainer>
+		<ItemContainer className="reportItem">
 			<Image src={data.metaData.articleImage} layout="fill" alt="reportImage" />
-			<ItemContent>
+			<ItemContent className="itemContent">
 				<ItemSection>
 					Section <span>{data.section}</span>
 				</ItemSection>
