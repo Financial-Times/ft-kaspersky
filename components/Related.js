@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { device } from '~/config/utils';
 import ReportItem from './Report/ReportItem';
+
 import 'swiper/swiper.min.css';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -23,6 +23,7 @@ const RelatedContainer = styled.div`
 const RelatedSwiper = styled.div`
 	max-width: 1180px;
 	margin: 0 auto;
+	margin-bottom: 30px;
 `;
 
 const SwiperPagination = styled.div`
@@ -30,20 +31,60 @@ const SwiperPagination = styled.div`
 	justify-content: center;
 	align-items: center;
 	padding: 20px 0;
+	position: relative;
+	max-width: 1180px;
+	margin: 0 auto;
+
+	.swiper-next {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		right: 0;
+
+		&[aria-disabled='true'] {
+			opacity: 0.5;
+		}
+	}
+
+	.swiper-prev {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		left: 0;
+
+		&[aria-disabled='true'] {
+			opacity: 0.5;
+		}
+
+		svg {
+			transform: rotate(180deg);
+		}
+	}
 
 	.swiper-pagination-bullet {
-		height: 10px;
-		width: 35px;
-		border-radius: 10px;
-		margin: 0 5px;
-		background-color: #f8971d;
-		opacity: 0.8;
-		transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+		margin-right: 5px;
+		height: 15px;
+		width: 15px;
+		border: 2px solid #707070;
+		background-color: transparent;
+		opacity: 1;
 	}
 	.swiper-pagination-bullet-active {
-		background-color: #009b3a;
-		width: 55px;
-		transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+		background-color: #06a88e;
+		border: 3px solid #06a88e;
+
+		position: relative;
+		&:after {
+			content: '';
+			height: 5px;
+			width: 5px;
+			position: absolute;
+			top: 50%;
+			right: 50%;
+			border-radius: 100%;
+			background-color: white;
+			transform: translate(40%, -50%);
+		}
 	}
 `;
 
@@ -74,6 +115,24 @@ const Related = ({ data }) => {
 						el: '.swiper-pagination',
 						clickable: true,
 					}}
+					navigation={{
+						nextEl: '.swiper-next',
+						prevEl: '.swiper-prev',
+					}}
+					breakpoints={{
+						960: {
+							slidesPerView: 3,
+							spaceBetween: 50,
+						},
+						540: {
+							slidesPerView: 2,
+							spaceBetween: 30,
+						},
+						320: {
+							slidesPerView: 1,
+							spaceBetween: 10,
+						},
+					}}
 				>
 					{data.map((slide, i) => (
 						<SwiperSlide key={i}>
@@ -83,7 +142,37 @@ const Related = ({ data }) => {
 				</Swiper>
 			</RelatedSwiper>
 			<SwiperPagination>
+				<div className="swiper-next">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="43.683"
+						height="35"
+						viewBox="0 0 43.683 35"
+					>
+						<path
+							id="arrow-next"
+							d="M0,17.456l3.069,3.069L15.35,8.158V43.683h4.474V8.07L32.018,20.439,35,17.456,17.544,0Z"
+							transform="translate(43.683) rotate(90)"
+							fill="#00a88e"
+						/>
+					</svg>
+				</div>
 				<div className="swiper-pagination"></div>
+				<div className="swiper-prev">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="43.683"
+						height="35"
+						viewBox="0 0 43.683 35"
+					>
+						<path
+							id="arrow-next"
+							d="M0,17.456l3.069,3.069L15.35,8.158V43.683h4.474V8.07L32.018,20.439,35,17.456,17.544,0Z"
+							transform="translate(43.683) rotate(90)"
+							fill="#00a88e"
+						/>
+					</svg>
+				</div>
 			</SwiperPagination>
 		</RelatedContainer>
 	);

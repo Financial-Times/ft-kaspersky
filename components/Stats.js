@@ -24,9 +24,20 @@ const Wrapper = styled.div`
 const Content = styled.div`
 	flex-basis: 58%;
 	max-width: 58%;
+
+	[data-long='true'] & {
+		display: none;
+		flex-basis: 0%;
+		max-width: 0%;
+	}
 `;
 
 const StatContainer = styled.div`
+	[data-long='true'] & {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+
 	flex-basis: 42%;
 	max-width: 42%;
 
@@ -55,6 +66,13 @@ const StatContainer = styled.div`
 		background-color: #707070;
 		transform: translateX(-50%);
 	}
+
+	[data-long='true'] & {
+		&:before,
+		&:after {
+			width: 100%;
+		}
+	}
 `;
 const StatCircle = styled.div`
 	width: 200px;
@@ -73,6 +91,7 @@ const StatContent = styled.div`
 	font-size: 36px;
 	line-height: 1.1;
 	padding-right: 15px;
+	padding-bottom: 30px;
 `;
 
 function animateValue(id, start, end, duration) {
@@ -94,14 +113,14 @@ function animateValue(id, start, end, duration) {
 const Stats = ({ data }) => {
 	return (
 		<Container>
-			<Wrapper>
+			<Wrapper data-long={data.long}>
 				<Tween
 					duration={10000}
 					to={{
 						scrollTrigger: {
-							trigger: `#test`,
-							start: '200px 200px',
-							end: 'bottom 200px',
+							trigger: `#stats`,
+							start: '-100px 100px',
+							end: 'bottom 0',
 							scrub: 0.5,
 							onEnter: () => {
 								animateValue('percentage', 0, data.percent, 2500);
@@ -110,12 +129,12 @@ const Stats = ({ data }) => {
 						},
 					}}
 				>
-					<StatContainer id="test">
+					<StatContainer id="stats">
 						<StatCircle>
 							<span id="percentage">0</span>
 							<span>%</span>
 						</StatCircle>
-						<StatContent>{data.content}</StatContent>
+						{data.content.length && <StatContent>{data.content}</StatContent>}
 					</StatContainer>
 					<Content dangerouslySetInnerHTML={{ __html: data.before }} />
 				</Tween>

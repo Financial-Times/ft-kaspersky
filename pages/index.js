@@ -36,8 +36,12 @@ const AccordionWrapper = styled.div`
 	#item-03 {
 		background-color: #06a88e;
 	}
+
 	.accordion__item {
 		cursor: pointer;
+		&:hover {
+			opacity: 0.75;
+		}
 		.accordion__button {
 			max-width: 1220px;
 			padding: 20px 10px;
