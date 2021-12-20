@@ -1,38 +1,39 @@
 {
-  "name": "ft-kaspersky",
-  "version": "0.1.0",
-  "private": true,
-  "cacheDirectories": [
-    ".next/cache"
-  ],
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start",
-    "lint": "next lint",
-    "heroku-postbuild": "yarn run build"
-  },
-  "dependencies": {
-    "@financial-times/o-tracking": "^4.2.0",
-    "framer-motion": "^5.4.5",
-    "gsap": "^3.8.0",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-accessible-accordion": "^4.0.0",
-    "react-dom": "17.0.2",
-    "react-ga": "^3.3.0",
-    "react-gtm-module": "^2.0.11",
-    "react-parallax": "^3.3.0",
-    "react-spring": "^9.3.2",
-    "react-youtube": "^7.13.1",
-    "styled-components": "^5.3.3",
-    "swiper": "^7.3.1",
-    "typewriter-effect": "^2.18.2"
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.2",
-    "eslint": "8.4.1",
-    "eslint-config-next": "12.0.7"
-  }
+	"name": "ft-kaspersky",
+	"version": "0.1.0",
+	"private": true,
+	"cacheDirectories": [
+		".next/cache"
+	],
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"export": "next export",
+		"start": "next start",
+		"lint": "next lint",
+		"heroku-postbuild": "yarn run build"
+	},
+	"dependencies": {
+		"@financial-times/o-tracking": "^4.2.0",
+		"framer-motion": "^5.4.5",
+		"gsap": "^3.9.0",
+		"next": "12.0.7",
+		"react": "17.0.2",
+		"react-accessible-accordion": "^4.0.0",
+		"react-dom": "17.0.2",
+		"react-ga": "^3.3.0",
+		"react-gsap": "^3.2.1",
+		"react-gtm-module": "^2.0.11",
+		"react-parallax": "^3.3.0",
+		"react-spring": "^9.3.2",
+		"react-youtube": "^7.13.1",
+		"styled-components": "^5.3.3",
+		"swiper": "^6.8.4",
+		"typewriter-effect": "^2.18.2"
+	},
+	"devDependencies": {
+		"babel-plugin-styled-components": "^2.0.2",
+		"eslint": "8.4.1",
+		"eslint-config-next": "12.0.7"
+	}
 }

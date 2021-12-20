@@ -17,6 +17,8 @@ import Sources from '~/components/Sources';
 import Cta from '~/components/Cta';
 import Graph from '~/components/Graph';
 import StandFirst from '~/components/StandFirst';
+import Stats from '~/components/Stats';
+import Related from '~/components/Related';
 
 const ArticleWrapper = styled.div``;
 
@@ -42,6 +44,7 @@ const HeroImgWrapper = styled.div`
 	display: block;
 	padding-bottom: 43.4375%;
 	@media ${device.tablet} {
+		padding-bottom: 23.4375%;
 	}
 
 	img {
@@ -71,8 +74,6 @@ export default function ArticlePage({ post, related, articles }) {
 			return decodeURIComponent(match[1]);
 		};
 
-		const relatedItems = related.concat(articles);
-
 		window.addEventListener('load', function () {
 			if (hasConsentedToBehaviouralAds()) {
 				window.permutive.consent({
@@ -84,7 +85,6 @@ export default function ArticlePage({ post, related, articles }) {
 				const cookieButton =
 					cookieContainer &&
 					document.querySelector('.o-cookie-message__button');
-				console.log(cookieButton);
 				cookieButton.addEventListener('click', (e) => {
 					window.permutive.consent({
 						opt_in: true,
@@ -95,6 +95,8 @@ export default function ArticlePage({ post, related, articles }) {
 			}
 		});
 	}, []);
+
+	const relatedItems = related.concat(articles);
 
 	return (
 		<>
@@ -146,9 +148,12 @@ export default function ArticlePage({ post, related, articles }) {
 							return <Graph key={el.id} data={el.data} />;
 						case 'standFirst':
 							return <StandFirst key={el.id} data={el.data} />;
+						case 'stat':
+							return <Stats key={el.id} data={el.data} />;
 					}
 				})}
 			</ArticleWrapper>
+			<Related data={relatedItems} />
 		</>
 	);
 }
