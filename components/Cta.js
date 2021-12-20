@@ -22,7 +22,6 @@ const LinkButton = styled.button`
 	font-size: 15px;
 	font-weight: 500;
 	line-height: 1;
-	position: absolute;
 	bottom: 20px;
 	border: 1px solid #06a88e;
 
