@@ -59,6 +59,7 @@ const AccordionWrapper = styled.div`
 			text-transform: uppercase;
 			line-height: 1;
 			display: flex;
+			font-size: 24px;
 
 			@media ${device.tablet} {
 				font-size: 50px;
@@ -66,7 +67,11 @@ const AccordionWrapper = styled.div`
 			}
 
 			span {
-				padding-right: 25px;
+				padding-right: 15px;
+
+				@media ${device.tablet} {
+					padding-right: 25px;
+				}
 			}
 
 			&[aria-expanded='true'] {
@@ -77,9 +82,14 @@ const AccordionWrapper = styled.div`
 			&:before {
 				content: '+';
 				position: absolute;
-				right: 0;
-				top: 50%;
-				transform: translateY(-50%);
+				right: 10px;
+				top: 0;
+
+				@media ${device.tablet} {
+					right: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
 			}
 		}
 		.accordion__panel {
@@ -97,8 +107,13 @@ const AccordionWrapper = styled.div`
 
 const AccordionContainer = styled.div`
 	max-width: 883px;
-	padding: 0 5px;
+	padding: 15px 15px;
 	margin: 0 auto;
+
+	@media ${device.tablet} {
+		padding: 0 5px;
+	}
+
 	p {
 		font-size: 24px;
 		line-height: 1;

@@ -35,6 +35,8 @@ const ItemTitle = styled.div`
 	line-height: 1;
 	padding: 0 10px;
 	margin-bottom: 50px;
+	font-size: 40px;
+
 	@media ${device.tablet} {
 		font-size: 36px;
 	}
@@ -68,7 +70,7 @@ const ItemCta = styled.button`
 
 const ItemContainer = styled.div`
 	position: relative;
-	padding-bottom: 56%;
+	padding-bottom: 150%;
 	overflow: hidden;
 
 	@media ${device.tablet} {
@@ -83,8 +85,12 @@ const ItemContainer = styled.div`
 		left: 0;
 		height: 100%;
 		width: 100%;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.5);
 		transition: background-color 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+		@media ${device.tablet} {
+			background-color: rgba(0, 0, 0, 0.2);
+		}
 	}
 
 	&:hover {
@@ -112,9 +118,11 @@ const ReportItem = ({ data }) => {
 		<ItemContainer className="reportItem">
 			<Image src={data.metaData.articleImage} layout="fill" alt="reportImage" />
 			<ItemContent className="itemContent">
-				<ItemSection>
-					Section <span>{data.section}</span>
-				</ItemSection>
+				{data.section && (
+					<ItemSection>
+						Section <span>{data.section}</span>
+					</ItemSection>
+				)}
 				<ItemContentWrapper>
 					<ItemTitle>{data.metaData.title}</ItemTitle>
 

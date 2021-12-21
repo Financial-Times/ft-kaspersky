@@ -1,11 +1,16 @@
 import styled from 'styled-components';
+import { device } from '~/config/utils';
 
 const BttContainer = styled.div`
 	margin-bottom: 30px;
 	max-width: 1220px;
 	padding: 20px;
 	margin: 0 auto;
-	text-align: right;
+	text-align: center;
+
+	@media ${device.tablet} {
+		text-align: right;
+	}
 `;
 
 const BttWrapper = styled.button`

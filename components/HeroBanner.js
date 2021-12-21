@@ -16,7 +16,11 @@ const HeroContainer = styled.div`
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.4);
+
+		@media ${device.tablet} {
+			background-color: rgba(0, 0, 0, 0.2);
+		}
 	}
 
 	img {
@@ -27,24 +31,31 @@ const HeroContainer = styled.div`
 	}
 `;
 const HeroContent = styled.div`
-	font-family: museo-sans, sans-serif;
-	position: absolute;
-	top: 50%;
-	right: 60%;
 	color: white;
 	z-index: 2;
 	line-height: 1;
-	transform: translate(50%, -60%);
-
 	width: 100%;
 	max-width: 800px;
+	position: absolute;
+	z-index: 1;
+	padding: 10px;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+
+	@media ${device.tablet} {
+		top: 50%;
+		right: 60%;
+		transform: translate(50%, -60%);
+	}
 `;
 
 const HeroTitle = styled.div`
 	text-align: left;
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: 400;
 	margin-bottom: 20px;
+	font-size: 48px;
 
 	@media ${device.tablet} {
 		font-size: 85px;
@@ -60,6 +71,7 @@ const HeroScrollContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	transform: translateX(50%);
 `;
 
 const HeroScrollImage = styled.div`
@@ -85,7 +97,7 @@ const HeroScrollImage = styled.div`
 `;
 
 const HeroDesc = styled.div`
-	font-size: 28px;
+	font-size: 25px;
 
 	@media ${device.tablet} {
 		font-size: 36px;

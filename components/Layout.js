@@ -58,10 +58,11 @@ const GlobalStyles = createGlobalStyle`
 	line-height: 1;
   font-weight: 300;
   margin: 30px 0;
-
-	@media ${device.tablet} {
-		font-size: 48px;
-	}
+  font-size: 28px;
+    
+    @media ${device.tablet} {
+      font-size: 48px;
+    }
   }
   p {
     font-family: MetricWeb,sans-serif;

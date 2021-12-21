@@ -29,9 +29,9 @@ const LinkButton = styled.button`
 	transition: all 0.5s ease-in-out;
 
 	&:hover {
-		background-color: #ffffff;
-		color: #06a88e;
-		border: 1px solid #06a88e;
+		background-color: #7eff33;
+		color: black;
+		border: 1px solid #7eff33;
 		transition: all 0.5s ease-in-out;
 	}
 `;

@@ -19,6 +19,7 @@ import Graph from '~/components/Graph';
 import StandFirst from '~/components/StandFirst';
 import Stats from '~/components/Stats';
 import Related from '~/components/Related';
+import BTTButton from '~/components/BTTButton';
 
 const ArticleWrapper = styled.div``;
 
@@ -42,7 +43,7 @@ const ArticleTitle = styled.div`
 const HeroImgWrapper = styled.div`
 	position: relative;
 	display: block;
-	padding-bottom: 43.4375%;
+	padding-bottom: 70%;
 	@media ${device.tablet} {
 		padding-bottom: 23.4375%;
 	}
@@ -76,7 +77,7 @@ export default function ArticlePage({ post, related, articles }) {
 
 		window.addEventListener('load', function () {
 			if (hasConsentedToBehaviouralAds()) {
-				window.permutive.consent({
+				permutive.consent({
 					opt_in: true,
 					token: 'behaviouraladsOnsite:on',
 				});
@@ -154,6 +155,7 @@ export default function ArticlePage({ post, related, articles }) {
 				})}
 			</ArticleWrapper>
 			<Related data={relatedItems} />
+			<BTTButton />
 		</>
 	);
 }

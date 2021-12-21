@@ -9,11 +9,13 @@ const Content = styled.div`
 	flex-basis: 100%;
 	max-width: 100%;
 	padding-right: 30px;
+	order: 2;
 
 	@media ${device.tablet} {
 		flex-basis: 35%;
 		max-width: 35%;
 		padding-right: 30px;
+		order: initial;
 	}
 `;
 
@@ -21,6 +23,9 @@ const ContentDesc = styled.div`
 	font-weight: 300;
 	line-height: 1;
 	color: #333333;
+	font-size: 20px;
+	margin-bottom: 20px;
+
 	@media ${device.tablet} {
 		font-size: 24px;
 		margin-bottom: 20px;
@@ -32,8 +37,9 @@ const Container = styled.div`
 	justify-content: flex-start;
 	flex-direction: column;
 	max-width: 1220px;
-	padding: 5px;
+	padding: 0 20px;
 	margin: 0 auto;
+	margin-bottom: 30px;
 
 	&:hover {
 		img {
@@ -61,13 +67,17 @@ const ContentReadTime = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	text-transform: uppercase;
 	color: #333333;
 	font-weight: 200;
 
 	span {
 		line-height: 1;
+	}
+
+	@media ${device.tablet} {
+		margin-bottom: 30px;
 	}
 `;
 
@@ -83,6 +93,8 @@ const ContentTitle = styled.div`
 	margin-top: 0;
 	position: relative;
 	padding-bottom: 15px;
+	font-size: 36px;
+	margin-bottom: 10px;
 
 	&:after {
 		content: '';
@@ -122,12 +134,17 @@ const ContentButton = styled.button`
 const ImageWrapper = styled.div`
 	flex-basis: 100%;
 	max-width: 100%;
+	padding-bottom: 70%;
+	order: 1;
 	position: relative;
+	margin-bottom: 15px;
 
 	@media ${device.tablet} {
 		flex-basis: 65%;
 		max-width: 65%;
 		padding-bottom: 40%;
+		order: initial;
+		margin-bottom: initial;
 	}
 
 	img {

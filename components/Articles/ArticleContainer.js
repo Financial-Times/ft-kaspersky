@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import ArticleItem from './ArticleItem';
 
-const Container = styled.div``;
+const Container = styled.div`
+	padding-bottom: 40px;
+	position: relative;
+`;
 
 const ArticleContainer = ({ data }) => {
 	return (

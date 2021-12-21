@@ -47,12 +47,16 @@ const Wrapper = styled.div`
 		display: block;
 		width: 40px;
 		height: 40px;
-		left: 0;
+		left: 5px;
 		top: 0;
 		background-image: url(${q1.src});
 		background-position: center center;
 		background-size: contain;
 		background-repeat: no-repeat;
+
+		@media ${device.tablet} {
+			left: 0px;
+		}
 	}
 
 	&:after {
@@ -61,23 +65,33 @@ const Wrapper = styled.div`
 		position: absolute;
 		width: 40px;
 		height: 40px;
-		right: 0;
-		top: 0;
+		bottom: 0;
+		right: 5px;
 		background-image: url(${q2.src});
 		background-position: center center;
 		background-size: contain;
 		background-repeat: no-repeat;
+
+		@media ${device.tablet} {
+			top: 0;
+			right: 0;
+			bottom: initial;
+		}
 	}
 `;
 
 const Content = styled.div`
-	font-weight: 500;
 	line-height: 1;
 	margin-bottom: 15px;
+	font-size: 28px;
+	font-weight: 400;
+	padding: 0 35px;
+
 	@media ${device.tablet} {
 		font-size: 36px;
 		padding: 0 35px;
 		margin-bottom: 40px;
+		font-weight: 500;
 	}
 `;
 const Author = styled.div`
@@ -85,8 +99,9 @@ const Author = styled.div`
 	font-size: 20px;
 	line-height: 1;
 	text-transform: uppercase;
+	padding: 0 35px;
+
 	@media ${device.tablet} {
-		padding: 0 35px;
 	}
 `;
 

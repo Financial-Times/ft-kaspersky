@@ -39,9 +39,13 @@ const SwiperPagination = styled.div`
 		width: 30px;
 		height: 30px;
 		position: absolute;
-		right: 0;
+		right: 10px;
 		cursor: pointer;
 		transition: transform 0.5s ease-in-out;
+
+		@media ${device.tablet} {
+			right: 0;
+		}
 
 		&:hover {
 			transform: scale(1.2);
@@ -114,6 +118,7 @@ const RelatedTitle = styled.div`
 	line-height: 1;
 	margin-bottom: 50px;
 	letter-spacing: 1px;
+	font-size: 32px;
 
 	@media ${device.tablet} {
 		font-size: 40px;

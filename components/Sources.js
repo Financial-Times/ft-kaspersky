@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 	background-color: #f8f8f8;
 	@media ${device.tablet} {
-		padding: 0 10px;
+		padding: 10px;
 		margin: 50px auto;
 	}
 `;
@@ -18,17 +18,7 @@ const Title = styled.div`
 	text-transform: uppercase;
 	position: relative;
 	display: inline-block;
-
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 1px;
-		left: 0;
-		height: 1px;
-		width: 100%;
-		background-color: #636364;
-	}
+	margin-bottom: 5px;
 
 	@media ${device.tablet} {
 	}
