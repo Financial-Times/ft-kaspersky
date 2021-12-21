@@ -26,8 +26,13 @@ const Content = styled.div`
 `;
 const ContentBack = styled.div`
 	a {
-		font-weight: 300;
+		font-weight: 600;
 		text-transform: uppercase;
+		color: #06a88e;
+
+		&:hover {
+			color: #23d0ad;
+		}
 	}
 
 	margin-right: 10px;
@@ -36,9 +41,11 @@ const ContentBack = styled.div`
 const ContentTitle = styled.div`
 	color: #707070;
 	text-transform: uppercase;
-	font-weight: 300;
+	font-weight: 500;
+
 	span {
 		margin-right: 10px;
+		font-weight: 600;
 	}
 `;
 

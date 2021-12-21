@@ -34,6 +34,14 @@ const Container = styled.div`
 	max-width: 1220px;
 	padding: 5px;
 	margin: 0 auto;
+
+	&:hover {
+		img {
+			transform: scale(1.4);
+			transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		}
+	}
+
 	@media ${device.tablet} {
 		flex-direction: row;
 		padding: 0 20px;
@@ -125,6 +133,7 @@ const ImageWrapper = styled.div`
 	img {
 		object-fit: cover;
 		object-position: center center;
+		transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 	}
 `;
 

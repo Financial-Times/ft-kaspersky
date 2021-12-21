@@ -37,9 +37,10 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 500;
     text-decoration: underline;
 
-  }
-  a:hover {
-    text-decoration: none;
+    &:hover, &:active, &:focus {
+      color: #23D0AD;
+      text-decoration: underline;
+    }
   }
   button {
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;

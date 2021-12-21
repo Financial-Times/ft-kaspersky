@@ -40,6 +40,13 @@ const SwiperPagination = styled.div`
 		height: 30px;
 		position: absolute;
 		right: 0;
+		cursor: pointer;
+		transition: transform 0.5s ease-in-out;
+
+		&:hover {
+			transform: scale(1.2);
+			transition: transform 0.5s ease-in-out;
+		}
 
 		&[aria-disabled='true'] {
 			opacity: 0.5;
@@ -51,6 +58,13 @@ const SwiperPagination = styled.div`
 		height: 30px;
 		position: absolute;
 		left: 0;
+		cursor: pointer;
+		transition: transform 0.5s ease-in-out;
+
+		&:hover {
+			transform: scale(1.2);
+			transition: transform 0.5s ease-in-out;
+		}
 
 		&[aria-disabled='true'] {
 			opacity: 0.5;
@@ -68,6 +82,9 @@ const SwiperPagination = styled.div`
 		border: 2px solid #707070;
 		background-color: transparent;
 		opacity: 1;
+		border-radius: 100%;
+		height: 20px;
+		width: 20px;
 	}
 	.swiper-pagination-bullet-active {
 		background-color: #06a88e;
@@ -83,7 +100,7 @@ const SwiperPagination = styled.div`
 			right: 50%;
 			border-radius: 100%;
 			background-color: white;
-			transform: translate(40%, -50%);
+			transform: translate(60%, -60%);
 		}
 	}
 `;

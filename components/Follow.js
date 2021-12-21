@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Container = styled.div`
 	background-color: #06a88e;
 	padding: 60px 0;
-	margin-top: 100px;
 `;
 const Wrapper = styled.div`
 	display: flex;

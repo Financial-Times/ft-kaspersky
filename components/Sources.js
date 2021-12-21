@@ -6,8 +6,10 @@ const Wrapper = styled.div`
 	padding: 0 5px;
 	max-width: 883px;
 	margin: 0 auto;
+	background-color: #f8f8f8;
 	@media ${device.tablet} {
 		padding: 0 10px;
+		margin: 50px auto;
 	}
 `;
 const Title = styled.div`

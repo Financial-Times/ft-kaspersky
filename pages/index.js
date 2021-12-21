@@ -20,6 +20,7 @@ import ReportContainer from '~/components/Report/ReportContainer';
 import ArticleContainer from '~/components/Articles/ArticleContainer';
 import Follow from '~/components/Follow';
 import Quote from '~/components/Quote';
+import BTTButton from '~/components/BTTButton';
 
 const Introduction = styled.div``;
 
@@ -39,8 +40,14 @@ const AccordionWrapper = styled.div`
 
 	.accordion__item {
 		cursor: pointer;
+
 		&:hover {
-			opacity: 0.75;
+			.accordion__heading {
+				opacity: 0.75;
+			}
+			.accordion__panel {
+				opacity: 1;
+			}
 		}
 		.accordion__button {
 			max-width: 1220px;
@@ -95,12 +102,18 @@ const AccordionContainer = styled.div`
 	p {
 		font-size: 24px;
 		line-height: 1;
+		color: #333333;
 	}
 
 	ul {
 		list-style: decimal;
 		padding-left: 20px;
 		font-size: 24px;
+		color: #333333;
+
+		li {
+			line-height: 1.3;
+		}
 	}
 `;
 
@@ -117,6 +130,10 @@ const AccordionSources = styled.div`
 	color: #636364;
 `;
 
+const Title = styled.p`
+	font-size: 28px !important;
+`;
+
 export default function Home({ reportData, articleData }) {
 	useEffect(() => {
 		FtEvents();
@@ -127,7 +144,8 @@ export default function Home({ reportData, articleData }) {
 		<>
 			<Head>
 				<title>
-					Kaspersky - Financial Times - Partner Content by Marriott-Bonvey
+					THREE STEPS TO SUPERIOR CYBER SECURITY - Financial Times - Partner
+					Content by Kaspersky
 				</title>
 				<Metadata title={true} data={null} />
 			</Head>
@@ -183,11 +201,11 @@ export default function Home({ reportData, articleData }) {
 							</AccordionItemHeading>
 							<AccordionItemPanel>
 								<AccordionContainer>
-									<p>
+									<Title>
 										In partnership with Longitude, a Financial Times company,
 										Kaspersky surveyed 750 leaders at enterprises around the
 										world about their approach to cyber security.
-									</p>
+									</Title>
 									<p>
 										Respondents represented companies from of geographies
 										(Australia; Austria; Brazil; Canada; France; Germany; Hong
@@ -217,7 +235,6 @@ export default function Home({ reportData, articleData }) {
 							</AccordionItemHeading>
 							<AccordionItemPanel>
 								<AccordionContainer>
-									<AccordionImage />
 									<p>
 										“Most people are completely unprepared,” says Shawnee
 										Delaney, CEO of US-based insider threat specialist Vaillance
@@ -266,6 +283,7 @@ export default function Home({ reportData, articleData }) {
 			</Introduction>
 			<ReportContainer data={reportData} />
 			<ArticleContainer data={articleData} />
+			<BTTButton />
 			<Follow />
 		</>
 	);
