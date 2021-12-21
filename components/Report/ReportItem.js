@@ -3,32 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { device } from '~/config/utils';
 
-const ItemContainer = styled.div`
-	position: relative;
-	padding-bottom: 56%;
-
-	@media ${device.tablet} {
-		padding-bottom: 120%;
-	}
-
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		background-color: rgba(0, 0, 0, 0.3);
-	}
-
-	img {
-		&[alt='reportImage'] {
-			object-fit: cover;
-			object-position: center center;
-		}
-	}
-`;
 const ItemContent = styled.div`
 	position: absolute;
 	width: 100%;
@@ -59,6 +33,7 @@ const ItemSection = styled.div`
 const ItemTitle = styled.div`
 	text-transform: uppercase;
 	line-height: 1;
+	padding: 0 10px;
 	margin-bottom: 50px;
 	@media ${device.tablet} {
 		font-size: 36px;
@@ -72,23 +47,63 @@ const ItemContentWrapper = styled.div`
 
 const ItemCta = styled.button`
 	padding: 10px 25px;
-	background-color: white;
 	border-radius: 3px;
-	color: #06a88e;
+	background-color: #06a88e;
+	color: #ffffff;
 	font-size: 15px;
 	font-weight: 500;
 	line-height: 1;
-
-	border: 1px solid #ffffff;
+	border: 1px solid #06a88e;
 
 	cursor: pointer;
 	transition: all 0.5s ease-in-out;
 
 	&:hover {
-		background-color: #06a88e;
-		color: #ffffff;
-		border: 1px solid #06a88e;
+		background-color: #7eff33;
+		color: black;
+		border: 1px solid #7eff33;
 		transition: all 0.5s ease-in-out;
+	}
+`;
+
+const ItemContainer = styled.div`
+	position: relative;
+	padding-bottom: 56%;
+	overflow: hidden;
+
+	@media ${device.tablet} {
+		padding-bottom: 120%;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.2);
+		transition: background-color 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	}
+
+	&:hover {
+		img {
+			transform: scale(1.4);
+			transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		}
+		&:after {
+			background-color: rgba(0, 0, 0, 0.4);
+			transition: background-color 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		}
+	}
+
+	img {
+		&[alt='reportImage'] {
+			object-fit: cover;
+			object-position: center center;
+			transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		}
 	}
 `;
 

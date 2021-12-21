@@ -49,7 +49,7 @@ const HeroImgWrapper = styled.div`
 
 	img {
 		object-fit: cover;
-		object-position: top;
+		object-position: center center;
 	}
 `;
 

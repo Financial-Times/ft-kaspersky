@@ -11,7 +11,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 const RelatedContainer = styled.div`
 	padding: 70px 20px 30px 20px;
 	margin-bottom: 30px;
-
+	background-color: #f8f8f8;
 	.reportItem {
 		.itemContent {
 			width: 90%;
@@ -89,10 +89,10 @@ const SwiperPagination = styled.div`
 `;
 
 const RelatedTitle = styled.div`
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
+	font-weight: 400;
 	font-size: 30px;
 	color: #404545;
+	text-transform: uppercase;
 	text-align: center;
 	line-height: 1;
 	margin-bottom: 50px;
