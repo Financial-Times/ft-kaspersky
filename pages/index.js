@@ -173,7 +173,7 @@ export default function Home({ reportData, articleData }) {
 			/>
 			<Introduction>
 				<AccordionWrapper>
-					<Accordion allowZeroExpanded={true}>
+					<Accordion allowZeroExpanded={false}>
 						<AccordionItem id="item-01">
 							<AccordionItemHeading>
 								<AccordionItemButton>

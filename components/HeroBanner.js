@@ -41,7 +41,7 @@ const HeroContent = styled.div`
 	padding: 10px;
 	top: 50%;
 	right: 50%;
-	transform: translate(50%, -50%);
+	transform: translate(50%, -70%);
 
 	@media ${device.tablet} {
 		top: 50%;
@@ -55,7 +55,7 @@ const HeroTitle = styled.div`
 	text-transform: uppercase;
 	font-weight: 400;
 	margin-bottom: 20px;
-	font-size: 48px;
+	font-size: 55px;
 
 	@media ${device.tablet} {
 		font-size: 85px;
@@ -65,13 +65,17 @@ const HeroTitle = styled.div`
 
 const HeroScrollContainer = styled.div`
 	position: absolute;
-	bottom: 15px;
+	bottom: 20px;
 	right: 50%;
 	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	transform: translateX(50%);
+
+	@media ${device.tablet} {
+		bottom: 15px;
+	}
 `;
 
 const HeroScrollImage = styled.div`
@@ -105,6 +109,15 @@ const HeroDesc = styled.div`
 `;
 
 const HeroBanner = ({ title, desc, img }) => {
+	function scrollToReport() {
+		const report = document.querySelector('#reportContainer');
+		report.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+			inline: 'start',
+		});
+	}
+
 	return (
 		<HeroContainer>
 			<Image src={img} alt="hero" layout="fill" />
@@ -113,7 +126,7 @@ const HeroBanner = ({ title, desc, img }) => {
 				{desc && <HeroDesc>{desc}</HeroDesc>}
 			</HeroContent>
 			<HeroScrollContainer>
-				<HeroScrollImage>
+				<HeroScrollImage onClick={() => scrollToReport()}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="70"

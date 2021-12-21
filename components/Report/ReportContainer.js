@@ -86,7 +86,7 @@ const ReportItemContainer = styled.div`
 
 const ReportContainer = ({ data }) => {
 	return (
-		<ReportWrapper>
+		<ReportWrapper id="reportContainer">
 			<ReportWrapperContent>
 				<ReportWrapperTitle>Report Title goes here</ReportWrapperTitle>
 				<ReportWrapperDesc>
