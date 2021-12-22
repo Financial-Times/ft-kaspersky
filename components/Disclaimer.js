@@ -325,9 +325,7 @@ const Disclaimer = () => {
 	return (
 		<DisclaimerContainer>
 			<DisclaimerWrapper>
-				<DisclaimerClient>
-					<Link href="/"> Kaspersky </Link>
-				</DisclaimerClient>
+				<DisclaimerClient>Kaspersky</DisclaimerClient>
 				<DisclaimerPc>
 					<DisclaimerPcText>Partner Content</DisclaimerPcText>
 					<DisclaimerPcToggle onClick={toggleDisclaimerClose}>
