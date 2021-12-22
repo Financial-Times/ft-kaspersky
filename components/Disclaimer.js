@@ -50,13 +50,11 @@ const DisclaimerClient = styled.div`
 	font-weight: 500;
 	text-transform: uppercase;
 	cursor: pointer;
+	color: rgb(147, 149, 152);
+	text-decoration: none;
 
-	a {
-		color: #939598;
-		text-decoration: none;
-		@media ${device.tablet} {
-			font-size: 20px;
-		}
+	@media ${device.tablet} {
+		font-size: 20px;
 	}
 `;
 const DisclaimerPc = styled.div`
