@@ -9,14 +9,16 @@
 		"dev": "next dev",
 		"build": "next build",
 		"export": "next export",
-		"start": "next start",
+		"start": "node server.js",
 		"lint": "next lint",
 		"heroku-postbuild": "yarn run build"
 	},
 	"dependencies": {
 		"@financial-times/o-tracking": "^4.2.0",
+		"express": "^4.17.2",
 		"framer-motion": "^5.4.5",
 		"gsap": "^3.9.0",
+		"heroku-ssl-redirect": "^0.1.1",
 		"next": "12.0.7",
 		"react": "17.0.2",
 		"react-accessible-accordion": "^4.0.0",
