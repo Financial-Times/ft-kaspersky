@@ -165,7 +165,7 @@ export default function Home({ reportData, articleData }) {
 				<Metadata title={true} data={null} />
 			</Head>
 			<HeroBanner
-				img={'https://ft.com/partnercontent/kaspersky/img/Hero.webp'}
+				img={'https://ft.com/partnercontent/kaspersky/images/heroAmended.jpg'}
 				title={'Three steps to superior cyber security'}
 				desc={
 					'New research from Kaspersky shows that diversity, collaboration and training can help protect enterprise from major cyber threats.'
