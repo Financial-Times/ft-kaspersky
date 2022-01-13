@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { device } from '~/config/utils';
+import {animateValue, device} from '~/config/utils';
 
 import { Tween } from 'react-gsap';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.div`
@@ -94,22 +94,6 @@ const StatContent = styled.div`
 	padding-bottom: 30px;
 `;
 
-function animateValue(id, start, end, duration) {
-	if (start === end) return;
-	var range = end - start;
-	var current = start;
-	var increment = end > start ? 1 : -1;
-	var stepTime = Math.abs(Math.floor(duration / range));
-	var obj = document.getElementById(id);
-	var timer = setInterval(function () {
-		current += increment;
-		obj.innerHTML = current;
-		if (current == end) {
-			clearInterval(timer);
-		}
-	}, stepTime);
-}
-
 const Stats = ({ data }) => {
 	return (
 		<Container>
@@ -125,7 +109,7 @@ const Stats = ({ data }) => {
 							onEnter: () => {
 								animateValue('percentage', 0, data.percent, 2500);
 							},
-							markers: true,
+							markers: false
 						},
 					}}
 				>

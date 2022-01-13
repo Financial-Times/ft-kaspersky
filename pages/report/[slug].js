@@ -20,6 +20,7 @@ import StandFirst from '~/components/StandFirst';
 import Stats from '~/components/Stats';
 import Related from '~/components/Related';
 import BTTButton from '~/components/BTTButton';
+import MiniPullOut from "~/components/MiniPullOut";
 
 const ArticleWrapper = styled.div``;
 
@@ -120,11 +121,11 @@ export default function ArticlePage({ post, related, articles }) {
             }
           });`,
 				}}
-			></Script>
+			/>
 			<Script
 				async
 				src="https://e1c3fd73-dd41-4abd-b80b-4278d52bf7aa.edge.permutive.app/e1c3fd73-dd41-4abd-b80b-4278d52bf7aa-web.js"
-			></Script>
+			/>
 			<HeroImgWrapper>
 				<Image
 					src={post.metaData.articleImage}
@@ -152,6 +153,8 @@ export default function ArticlePage({ post, related, articles }) {
 							return <StandFirst key={el.id} data={el.data} />;
 						case 'stat':
 							return <Stats key={el.id} data={el.data} />;
+						case 'miniPullOut':
+							return <MiniPullOut key={el.id} data={el.data}/>
 					}
 				})}
 			</ArticleWrapper>
