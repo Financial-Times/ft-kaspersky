@@ -100,7 +100,17 @@ const Author = styled.div`
 	line-height: 1;
 	text-transform: uppercase;
 	padding: 0 35px;
+	position: relative;
 
+	&:before {
+		content: '—';
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate(50%, -50%);		
+	}
+	
 	@media ${device.tablet} {
 	}
 `;
@@ -110,7 +120,7 @@ const Quote = ({ data }) => {
 		<Container>
 			<Wrapper>
 				<Content>{data.content}</Content>
-				<Author>- {data.author}</Author>
+				<Author>{data.author}</Author>
 			</Wrapper>
 		</Container>
 	);

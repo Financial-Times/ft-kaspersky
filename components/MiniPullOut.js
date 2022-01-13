@@ -9,13 +9,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.div`
   max-width: 883px;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 30px auto;
+  padding: 10px 0;
   position: relative;
 
   @media ${device.tablet} {
-    padding: 15px 10px;
+    padding: 35px 10px;
   }
+  
+  &:before {
+    content: '';
+    height: 1px;
+    display: block;
+    width: calc(100% - 20px);
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+
+  &:after {
+    content: '';
+    height: 1px;
+    display: block;
+    width: calc(100% - 20px);
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -31,7 +58,13 @@ const Quote = styled.div`
   line-height: 1;
   flex-basis: 100%;
   max-width: 100%;
+  font-size: 44px;
+  margin-bottom: 20px;
+  display: grid;
+  place-content: center;
+
   @media ${device.tablet} {
+    margin-bottom: 0;
     flex-basis: 60%;
     max-width: 60%;
     font-size: 60px;
@@ -41,9 +74,11 @@ const Quote = styled.div`
 const CircleContainer = styled.div`
   flex-basis: 100%;
   max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   place-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   @media ${device.tablet} {
     flex-basis: 40%;
     max-width: 40%;
@@ -51,7 +86,17 @@ const CircleContainer = styled.div`
 `;
 
 const Circle = styled.div``;
-const CircleWrapper = styled.div``;
+const CircleWrapper = styled.div`
+  margin-right: 15px;
+
+  @media ${device.tablet} {
+    &:nth-child(1) {
+      margin-right: 15px;
+    }
+  }
+`;
+
+
 const CircleSpan = styled.div`
   display: flex;
   width: 144px;
@@ -63,6 +108,8 @@ const CircleSpan = styled.div`
   color: white;
   font-family: MetricWeb, sans-serif;
   font-weight: 500;
+  font-size: 40px;
+
   @media ${device.tablet} {
     font-size: 60px;
   }
@@ -97,7 +144,7 @@ const MiniPullOut = ({ data, id }) => {
                   );
                 });
               },
-              markers: true,
+              markers: false,
             },
           }}
         >

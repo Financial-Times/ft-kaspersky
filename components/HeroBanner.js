@@ -5,7 +5,7 @@ import { device } from "~/config/utils";
 import scrollImg from "~/assets/scroll.svg";
 
 const HeroContainer = styled.div`
-  min-height: calc(100vh - 105px);
+  min-height: calc(100vh - 245px);
   position: relative;
 
   &:after {

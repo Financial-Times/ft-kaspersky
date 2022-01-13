@@ -6,7 +6,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-	padding: 0 5px;
+	padding: 0 10px;
 	max-width: 883px;
 	margin: 0 auto;
 	@media ${device.tablet} {

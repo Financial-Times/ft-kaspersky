@@ -153,6 +153,12 @@ export default function Home({ reportData, articleData }) {
 	useEffect(() => {
 		FtEvents();
 		FtAnalytics();
+
+		const accItems = [...document.querySelectorAll('.accordion__item')]
+		accItems.forEach((item) => {
+			console.log(item)
+		})
+
 	}, []);
 
 	return (
