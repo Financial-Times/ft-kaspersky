@@ -10,15 +10,15 @@ gsap.registerPlugin(ScrollTrigger);
 const Container = styled.div`
   max-width: 883px;
   margin: 30px auto;
-  padding: 10px 0;
+  padding: 10px;
   position: relative;
 
   @media ${device.tablet} {
     padding: 35px 10px;
   }
-  
+
   &:before {
-    content: '';
+    content: "";
     height: 1px;
     display: block;
     width: calc(100% - 20px);
@@ -29,9 +29,8 @@ const Container = styled.div`
     transform: translateX(-50%);
   }
 
-
   &:after {
-    content: '';
+    content: "";
     height: 1px;
     display: block;
     width: calc(100% - 20px);
@@ -41,14 +40,16 @@ const Container = styled.div`
     left: 50%;
     transform: translateX(-50%);
   }
-
-
 `;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   @media ${device.tablet} {
     flex-direction: row;
+
+    [data-flip="true"] & {
+      flex-direction: row-reverse;
+    }
   }
 `;
 
@@ -58,7 +59,7 @@ const Quote = styled.div`
   line-height: 1;
   flex-basis: 100%;
   max-width: 100%;
-  font-size: 44px;
+  font-size: 40px;
   margin-bottom: 20px;
   display: grid;
   place-content: center;
@@ -96,11 +97,10 @@ const CircleWrapper = styled.div`
   }
 `;
 
-
 const CircleSpan = styled.div`
   display: flex;
-  width: 144px;
-  height: 144px;
+  width: 104px;
+  height: 104px;
   background: #06a88e;
   border-radius: 50%;
   justify-content: center;
@@ -112,6 +112,8 @@ const CircleSpan = styled.div`
 
   @media ${device.tablet} {
     font-size: 60px;
+    width: 144px;
+    height: 144px;
   }
 `;
 const CircleTitle = styled.div`
@@ -122,18 +124,18 @@ const CircleTitle = styled.div`
 `;
 
 const MiniPullOut = ({ data, id }) => {
-  console.log(data);
   return (
-    <Container>
+    <Container data-flip={data.invert}>
       <Wrapper>
         <Tween
           duration={10000}
           to={{
             scrollTrigger: {
               trigger: `#mini-${id}`,
-              start: "-200px 100px",
+              start: "-400px 100px",
               end: "bottom 0",
               scrub: 0.5,
+              once: true,
               onEnter: () => {
                 return data.circles.map((item) => {
                   animateValue(
@@ -144,11 +146,11 @@ const MiniPullOut = ({ data, id }) => {
                   );
                 });
               },
-              markers: false,
+              markers: true,
             },
           }}
         >
-          <Quote>{data.quote}</Quote>
+          <Quote>{data.quote}.</Quote>
           <CircleContainer id={`mini-${id}`}>
             {data.circles.map((item, i) => {
               return (

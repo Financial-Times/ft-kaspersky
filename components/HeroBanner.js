@@ -5,7 +5,7 @@ import { device } from "~/config/utils";
 import scrollImg from "~/assets/scroll.svg";
 
 const HeroContainer = styled.div`
-  min-height: calc(100vh - 245px);
+  min-height: calc(100vh - 222px);
   position: relative;
 
   &:after {
@@ -20,6 +20,7 @@ const HeroContainer = styled.div`
 
     @media ${device.tablet} {
       background-color: rgba(0, 0, 0, 0.2);
+      min-height: calc(100vh - 245px);
     }
   }
 
@@ -43,6 +44,12 @@ const HeroContent = styled.div`
   transform: translate(50%, -70%);
 
   @media ${device.tablet} {
+    top: 50%;
+    right: 100%;
+    transform: translate(100%, -60%);
+  }
+
+  @media ${device.laptop} {
     top: 50%;
     right: 60%;
     transform: translate(50%, -60%);
@@ -119,7 +126,7 @@ const HeroBanner = ({ title, desc, img }) => {
 
   return (
     <HeroContainer>
-      <Image prority src={img} alt="hero" layout="fill" />
+      <Image priority={true} src={img} alt="hero" layout="fill" />
       <HeroContent>
         <HeroTitle>{title}</HeroTitle>
         {desc && <HeroDesc>{desc}</HeroDesc>}

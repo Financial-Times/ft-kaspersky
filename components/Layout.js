@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import { createGlobalStyle } from 'styled-components';
-import Footer from './Footer';
-import Header from './Header';
-import Disclaimer from './Disclaimer';
-import BTTButton from './BTTButton';
-import { device } from '~/config/utils';
+import PropTypes from "prop-types";
+import { createGlobalStyle } from "styled-components";
+import Footer from "./Footer";
+import Header from "./Header";
+import Disclaimer from "./Disclaimer";
+import BTTButton from "./BTTButton";
+import { device } from "~/config/utils";
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -56,12 +56,12 @@ const GlobalStyles = createGlobalStyle`
 	color: #06a88e;
 	text-transform: uppercase;
 	line-height: 1;
-  font-weight: 300;
+  font-weight: 400;
   margin: 30px 0;
   font-size: 28px;
     
     @media ${device.tablet} {
-      font-size: 48px;
+      font-size: 40px;
     }
   }
   
@@ -69,9 +69,9 @@ const GlobalStyles = createGlobalStyle`
 	  font-family: MetricWeb, sans-serif;
 	  color: #06a88e;
 	  line-height: 1;
-	  font-weight: 300;
+	  font-weight: 400;
 	  margin: 30px 0;
-	  font-size: 30px;
+	  font-size: 32px;
   }
   p {
     font-family: MetricWeb,sans-serif;
@@ -100,18 +100,18 @@ const GlobalStyles = createGlobalStyle`
           
 `;
 export default function Page({ children }) {
-	return (
-		<>
-			<GlobalStyles />
-			<Header />
-			<Disclaimer />
-			{children}
-			{/* <BTTButton /> */}
-			<Footer />
-		</>
-	);
+  return (
+    <>
+      <GlobalStyles />
+      <Header />
+      <Disclaimer />
+      {children}
+      {/* <BTTButton /> */}
+      <Footer />
+    </>
+  );
 }
 
 Page.propTypes = {
-	children: PropTypes.any,
+  children: PropTypes.any,
 };
