@@ -64,6 +64,19 @@ const GlobalStyles = createGlobalStyle`
       font-size: 48px;
     }
   }
+  
+  h3 {
+	  font-family: MetricWeb, sans-serif;
+	  color: #06a88e;
+	  line-height: 1;
+	  font-weight: 300;
+	  margin: 30px 0;
+	  font-size: 20px;
+
+	  @media ${device.tablet} {
+		  font-size: 30px;
+	  }
+  }
   p {
     font-family: MetricWeb,sans-serif;
     color: #333333;
