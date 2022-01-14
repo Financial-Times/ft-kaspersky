@@ -133,7 +133,7 @@ export default function ArticlePage({ post, related, articles, reports }) {
           layout="fill"
         />
       </HeroImgWrapper>
-      <Home title={post.section} />
+      <Home title={post.metaData.title} />
       <ArticleWrapper className="articleWrapper">
         <ArticleTitle>{post.metaData.title}</ArticleTitle>
         {/* <ReadTime time={post.time} /> */}
