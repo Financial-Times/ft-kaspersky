@@ -5,11 +5,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useCallback } from "react";
 
 const Container = styled.div`
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #7eff33;
-
   .mobile {
     display: block;
   }
@@ -29,42 +24,61 @@ const Container = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #7eff33;
+`;
+const Title = styled.div`
+  font-size: 28px;
+  text-align: center;
+    font-family: MetricWeb, sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0 10px;
+  margin-bottom: 20px;
+
+}
+  @media ${device.mobileXL} {
+   font-size: 32px;
+    margin-bottom: 20px;
+`;
+
 const Graph = ({ data }) => {
-    const router = useRouter();
+  const router = useRouter();
 
-    useEffect(() => {
-        const script = document.createElement("script");
+  useEffect(() => {
+    const script = document.createElement("script");
 
-        script.src = "https://www.ft.com/partnercontent/kaspersky/graph.js?ts=3";
-        script.async = true;
+    script.src = "https://www.ft.com/partnercontent/kaspersky/graph.js?ts=3";
+    script.async = true;
 
-        document.body.appendChild(script);
-        console.log(document.querySelector("iframe"));
-        if (document.querySelector("iframe")) {
-            console.log(document.querySelector("iframe"));
-            document.querySelector("iframe").contentWindow.location.reload();
-        }
+    document.body.appendChild(script);
 
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, [router]);
-    return (
-        <Container>
-            <div
-                className="infogram-embed tablet"
-                data-id={data.id}
-                data-type="interactive"
-                data-title={data.title}
-            />
-            <div
-                className="infogram-embed mobile"
-                data-id={data.id_mob}
-                data-type="interactive"
-                data-title={data.title_mob}
-            />
-        </Container>
-    );
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [router]);
+  return (
+    <Container>
+      <Title>{data.mainTitle}</Title>
+      <Wrapper>
+        <div
+          className="infogram-embed tablet"
+          data-id={data.id}
+          data-type="interactive"
+          data-title={data.title}
+        />
+        <div
+          className="infogram-embed mobile"
+          data-id={data.id_mob}
+          data-type="interactive"
+          data-title={data.title_mob}
+        />
+      </Wrapper>
+    </Container>
+  );
 };
 
 export default Graph;
