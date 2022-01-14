@@ -16,7 +16,6 @@ const ReportWrapper = styled.div`
     margin-bottom: 100px;
   }
 
-  // JUMP
   .jump {
     animation: 0.4s jump ease infinite alternate;
   }
@@ -24,11 +23,9 @@ const ReportWrapper = styled.div`
   @keyframes jump {
     0% {
       transform: scale(1);
-      //box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     }
     100% {
       transform: scale(1.05);
-      //box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
   }
 `;
@@ -36,12 +33,12 @@ const ReportWrapper = styled.div`
 const ReportWrapperContent = styled.div`
   max-width: 100%;
   flex-basis: 100%;
-  padding: 20px 15px;
+  padding: 0 10px;
 
   @media ${device.tablet} {
     flex-basis: 23%;
     max-width: 23%;
-    padding-right: 30px;
+    padding-right: 20px;
   }
 `;
 const ReportWrapperTitle = styled.h2`
@@ -53,9 +50,11 @@ const ReportWrapperTitle = styled.h2`
   position: relative;
   padding-bottom: 15px;
   font-size: 36px;
+  max-width: 250px;
 
   @media ${device.tablet} {
     font-size: 44px;
+    max-width: initial;
   }
 
   &:after {
@@ -100,24 +99,76 @@ const ReportItemContainer = styled.div`
   }
 `;
 
+const ReportTitle = styled.div`
+  padding: 0 20px;
+  font-family: MetricWeb, sans-serif;
+  color: #06a88e;
+  text-transform: uppercase;
+  font-size: 52px;
+  font-weight: 400;
+  position: relative;
+
+  span {
+    position: relative;
+    width: 100%;
+    line-height: 1;
+    display: block;
+    padding-bottom: 20px;
+    text-align: center;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #06a88e;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  padding-top: 35px;
+  padding-bottom: 45px;
+
+  @media ${device.tablet} {
+    font-size: 52px;
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+`;
+const Container = styled.div`
+  max-width: 1220px;
+  margin: 0 auto;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    margin-bottom: 100px;
+  }
+`;
+
 const ReportContainer = ({ data }) => {
   return (
-    <ReportWrapper id="reportContainer">
-      <ReportWrapperContent>
-        <ReportWrapperTitle className={"reportTitle"}>
-          Report Title goes here
-        </ReportWrapperTitle>
-        <ReportWrapperDesc>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore.
-        </ReportWrapperDesc>
-      </ReportWrapperContent>
-      <ReportItemContainer>
-        {data.map((report, i) => {
-          return <ReportItem key={i} data={report} />;
-        })}
-      </ReportItemContainer>
-    </ReportWrapper>
+    <Container>
+      <ReportTitle>
+        <span>Report</span>
+      </ReportTitle>
+      <ReportWrapper id="reportContainer">
+        <ReportWrapperContent>
+          <ReportWrapperTitle className={"reportTitle"}>
+            Report Title
+          </ReportWrapperTitle>
+          <ReportWrapperDesc>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore.
+          </ReportWrapperDesc>
+        </ReportWrapperContent>
+        <ReportItemContainer>
+          {data.map((report, i) => {
+            return <ReportItem key={i} data={report} />;
+          })}
+        </ReportItemContainer>
+      </ReportWrapper>
+    </Container>
   );
 };
 

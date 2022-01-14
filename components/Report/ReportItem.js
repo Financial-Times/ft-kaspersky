@@ -38,6 +38,10 @@ const ItemTitle = styled.div`
   font-size: 40px;
 
   @media ${device.tablet} {
+    font-size: 28px;
+  }
+
+  @media ${device.laptop} {
     font-size: 36px;
   }
 `;

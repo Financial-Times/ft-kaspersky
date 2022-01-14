@@ -46,7 +46,7 @@ const Cta = ({ data }) => {
   return (
     <Container>
       <Wrapper>
-        <LinkContainer href={data.link} target={"_blank"}>
+        <LinkContainer href={data.content} target={"_blank"}>
           <LinkButton>{data.text}</LinkButton>
         </LinkContainer>
       </Wrapper>
