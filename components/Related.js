@@ -158,7 +158,7 @@ const Related = ({ data, link }) => {
         >
           {data.map((slide, i) => (
             <SwiperSlide key={i}>
-              <ReportItem data={slide} link={link} />
+              <ReportItem data={slide} link={slide.type} />
             </SwiperSlide>
           ))}
         </Swiper>

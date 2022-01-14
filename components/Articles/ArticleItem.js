@@ -164,9 +164,9 @@ const ArticleItem = ({ data }) => {
         </ContentReadTime>
         <ContentTitle>{data.metaData.title}</ContentTitle>
         <ContentDesc>{data.metaData.desc}</ContentDesc>
-        <Link href={`/article/${data.id}`} passHref>
+        <a href={`/article/${data.id}`} passHref>
           <ContentButton>Read now</ContentButton>
-        </Link>
+        </a>
       </Content>
       <ImageWrapper>
         <Image

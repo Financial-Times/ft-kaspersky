@@ -126,9 +126,9 @@ const ReportItem = ({ data, link }) => {
         <ItemContentWrapper>
           <ItemTitle>{data.metaData.title}</ItemTitle>
 
-          <Link href={`/${link}/${data.id}`} passHref>
+          <a href={`/${link}/${data.id}`} passHref>
             <ItemCta>Read now</ItemCta>
-          </Link>
+          </a>
         </ItemContentWrapper>
       </ItemContent>
     </ItemContainer>
