@@ -164,7 +164,7 @@ const ReportContainer = ({ data }) => {
         </ReportWrapperContent>
         <ReportItemContainer>
           {data.map((report, i) => {
-            return <ReportItem key={i} data={report} />;
+            return <ReportItem key={i} data={report} link={report.type} />;
           })}
         </ReportItemContainer>
       </ReportWrapper>
