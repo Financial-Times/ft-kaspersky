@@ -23,6 +23,8 @@ const HomeImg = styled.img`
 
 const Content = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const ContentBack = styled.div`
   a {
@@ -42,6 +44,11 @@ const ContentTitle = styled.div`
   color: #707070;
   text-transform: uppercase;
   font-weight: 500;
+  line-height: 1;
+  font-size: 12px;
+  @media ${device.tablet} {
+    font-size: 15px;
+  }
 
   span {
     margin-right: 10px;

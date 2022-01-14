@@ -19,11 +19,20 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 const Content = styled.div`
-  flex-basis: 58%;
-  max-width: 58%;
+  flex-basis: 100%;
+  max-width: 100%;
+  @media ${device.tablet} {
+    flex-basis: 58%;
+    max-width: 58%;
+  }
 
   [data-long="true"] & {
     display: none;
@@ -33,13 +42,18 @@ const Content = styled.div`
 `;
 
 const StatContainer = styled.div`
+  flex-basis: 100%;
+  max-width: 100%;
+
   [data-long="true"] & {
     flex-basis: 100%;
     max-width: 100%;
   }
 
-  flex-basis: 42%;
-  max-width: 42%;
+  @media ${device.tablet} {
+    flex-basis: 42%;
+    max-width: 42%;
+  }
 
   position: relative;
 
@@ -88,10 +102,14 @@ const StatCircle = styled.div`
 `;
 
 const StatContent = styled.div`
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.1;
   padding-right: 15px;
   padding-bottom: 30px;
+
+  @media ${device.tablet} {
+    font-size: 36px;
+  }
 `;
 
 const Stats = ({ data }) => {

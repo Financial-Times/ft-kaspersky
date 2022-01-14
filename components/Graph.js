@@ -1,6 +1,8 @@
 import Script from "next/script";
 import styled from "styled-components";
 import { device } from "~/config/utils";
+import { useRouter } from "next/router";
+import { useEffect, useState, useCallback } from "react";
 
 const Container = styled.div`
   max-width: 1220px;
@@ -28,6 +30,25 @@ const Container = styled.div`
 `;
 
 const Graph = ({ data }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src = "https://www.ft.com/partnercontent/kaspersky/graph.js?ts=3";
+    script.async = true;
+
+    document.body.appendChild(script);
+    console.log(document.querySelector("iframe"));
+    if (document.querySelector("iframe")) {
+      console.log(document.querySelector("iframe"));
+      document.querySelector("iframe").contentWindow.location.reload();
+    }
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [router]);
   return (
     <Container>
       <div
@@ -41,12 +62,6 @@ const Graph = ({ data }) => {
         data-id={data.id_mob}
         data-type="interactive"
         data-title={data.title_mob}
-      />
-      <Script
-        id="grpahId"
-        dangerouslySetInnerHTML={{
-          __html: `!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");`,
-        }}
       />
     </Container>
   );

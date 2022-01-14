@@ -113,7 +113,7 @@ const ItemContainer = styled.div`
   }
 `;
 
-const ReportItem = ({ data }) => {
+const ReportItem = ({ data, link }) => {
   return (
     <ItemContainer className="reportItem">
       <Image src={data.metaData.articleImage} layout="fill" alt="reportImage" />
@@ -126,7 +126,7 @@ const ReportItem = ({ data }) => {
         <ItemContentWrapper>
           <ItemTitle>{data.metaData.title}</ItemTitle>
 
-          <Link href={`/report/${data.id}`} passHref>
+          <Link href={`/${link}/${data.id}`} passHref>
             <ItemCta>Read now</ItemCta>
           </Link>
         </ItemContentWrapper>

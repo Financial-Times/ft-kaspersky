@@ -89,7 +89,7 @@ export default function ArticlePage({ post, related, articles, reports }) {
           cookieContainer &&
           document.querySelector(".o-cookie-message__button");
         cookieButton.addEventListener("click", (e) => {
-          window.permutive.consent({
+          permutive.consent({
             opt_in: true,
             token: "behaviouraladsOnsite:on",
           });
@@ -158,7 +158,7 @@ export default function ArticlePage({ post, related, articles, reports }) {
           }
         })}
       </ArticleWrapper>
-      <Related data={relatedItems} />
+      <Related data={relatedItems} link={post.type} />
       <BTTButton />
       <Follow />
     </>
