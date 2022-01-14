@@ -195,9 +195,11 @@ export default function Home({ reportData, articleData }) {
     FtAnalytics();
     console.log(router.query.report);
     const container = document.querySelector("#item-02");
+    const title = document.querySelector(".reportTitle");
     if (router.query.report === "true") {
       setTimeout(() => {
         scrollToReport();
+        title.classList.add("jump");
       }, 1100);
     }
 
