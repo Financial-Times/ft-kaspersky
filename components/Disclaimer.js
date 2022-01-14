@@ -32,7 +32,7 @@ const DisclaimerContainer = styled.div`
   padding: 5px 0;
   z-index: 99;
   position: sticky;
-  top: -1px;
+  top: -50px;
 
   &:after {
     content: "";

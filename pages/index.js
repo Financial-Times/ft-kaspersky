@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import styled from "styled-components";
 import {
@@ -11,7 +11,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import Metadata from "~/components/Metadata";
-import {ARTICLE_URL, REPORT_URL, scrollToReport} from "~/config/utils";
+import { ARTICLE_URL, REPORT_URL, scrollToReport } from "~/config/utils";
 import { device } from "~/config/utils";
 import FtAnalytics from "~/config/FtAnalytics";
 import FtEvents from "~/config/FtEvents";
@@ -23,7 +23,6 @@ import ArticleContainer from "~/components/Articles/ArticleContainer";
 import Follow from "~/components/Follow";
 import Quote from "~/components/Quote";
 import BTTButton from "~/components/BTTButton";
-
 
 const Introduction = styled.div``;
 
@@ -189,25 +188,26 @@ const Title = styled.p`
 `;
 
 export default function Home({ reportData, articleData }) {
-  const router = useRouter()
-  const [acc, setAcc] = useState(false)
+  const router = useRouter();
+  const [acc, setAcc] = useState(false);
   useEffect(() => {
     FtEvents();
     FtAnalytics();
-    console.log(router.query.report)
-    const container = document.querySelector('#item-02')
-    if (router.query.report === 'true') {
-      scrollToReport()
+    console.log(router.query.report);
+    const container = document.querySelector("#item-02");
+    if (router.query.report === "true") {
+      setTimeout(() => {
+        scrollToReport();
+      }, 1100);
     }
 
-    if (router.query.research === 'true') {
-      setAcc(true)
+    if (router.query.research === "true") {
+      setAcc(true);
       container.scrollIntoView({
         behavior: "smooth",
         block: "start",
         inline: "start",
       });
-
     }
   }, [router]);
 
@@ -267,7 +267,11 @@ export default function Home({ reportData, articleData }) {
                 </AccordionContainer>
               </AccordionItemPanel>
             </AccordionItem>
-            <AccordionItem id="item-02" uuid="b" {...(acc  && { dangerouslySetExpanded: true })} >
+            <AccordionItem
+              id="item-02"
+              uuid="b"
+              {...(acc && { dangerouslySetExpanded: true })}
+            >
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>02.</span>
@@ -305,8 +309,7 @@ export default function Home({ reportData, articleData }) {
                 </AccordionContainer>
               </AccordionItemPanel>
             </AccordionItem>
-            <AccordionItem id="item-03" uuid="c"
-            >
+            <AccordionItem id="item-03" uuid="c">
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>03.</span>
