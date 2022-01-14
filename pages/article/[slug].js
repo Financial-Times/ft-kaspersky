@@ -31,7 +31,7 @@ const ArticleTitle = styled.div`
 
   text-align: left;
   font-size: 48px;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   color: #06a88e;
   text-transform: uppercase;
   line-height: 1;
@@ -46,7 +46,7 @@ const HeroImgWrapper = styled.div`
   display: block;
   padding-bottom: 70%;
   @media ${device.tablet} {
-    padding-bottom: 23.4375%;
+    padding-bottom: 40.4375%;
   }
 
   img {
@@ -55,7 +55,7 @@ const HeroImgWrapper = styled.div`
   }
 `;
 
-export default function ArticlePage({ post, related, articles }) {
+export default function ArticlePage({ post, related, articles, reports }) {
   useEffect(() => {
     FtEvents();
     FtAnalytics();
@@ -98,8 +98,7 @@ export default function ArticlePage({ post, related, articles }) {
     });
   }, []);
 
-  const relatedItems = related.concat(articles);
-
+  const relatedItems = related.concat(reports);
   return (
     <>
       <Head>
@@ -158,6 +157,7 @@ export default function ArticlePage({ post, related, articles }) {
           }
         })}
       </ArticleWrapper>
+
       <Related data={relatedItems} />
       <BTTButton />
     </>
@@ -184,6 +184,6 @@ export async function getStaticProps({ params }) {
   });
 
   return {
-    props: { post, related, articles },
+    props: { post, related, articles, reports },
   };
 }

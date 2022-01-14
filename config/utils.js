@@ -41,5 +41,14 @@ export function animateValue(id, start, end, duration) {
 	}, stepTime);
 }
 
+export function scrollToReport() {
+	const report = document.querySelector("#reportContainer");
+	report.scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "start",
+	});
+}
+
 export const ARTICLE_URL = `https://ft.com/partnercontent/kaspersky/article.json?ts=${ts}`;
 export const REPORT_URL = `https://ft.com/partnercontent/kaspersky/report.json?ts=${ts}`;

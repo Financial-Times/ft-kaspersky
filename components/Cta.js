@@ -3,6 +3,8 @@ import { device } from "~/config/utils";
 
 const Container = styled.div`
   min-height: 75px;
+  margin-top: 25px;
+  margin-bottom: 50px;
   @media ${device.tablet} {
     margin-top: 50px;
     margin-bottom: 100px;

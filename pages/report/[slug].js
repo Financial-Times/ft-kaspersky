@@ -21,6 +21,7 @@ import Stats from '~/components/Stats';
 import Related from '~/components/Related';
 import BTTButton from '~/components/BTTButton';
 import MiniPullOut from "~/components/MiniPullOut";
+import Follow from "~/components/Follow";
 
 const ArticleWrapper = styled.div``;
 
@@ -159,6 +160,7 @@ export default function ArticlePage({ post, related, articles }) {
 				})}
 			</ArticleWrapper>
 			<Related data={relatedItems} />
+			<Follow/>
 			<BTTButton />
 		</>
 	);

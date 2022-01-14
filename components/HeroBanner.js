@@ -1,8 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { device } from "~/config/utils";
-
-import scrollImg from "~/assets/scroll.svg";
+import {device, scrollToReport} from "~/config/utils";
 
 const HeroContainer = styled.div`
   min-height: calc(100vh - 222px);
@@ -115,14 +113,6 @@ const HeroDesc = styled.div`
 `;
 
 const HeroBanner = ({ title, desc, img }) => {
-  function scrollToReport() {
-    const report = document.querySelector("#reportContainer");
-    report.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "start",
-    });
-  }
 
   return (
     <HeroContainer>

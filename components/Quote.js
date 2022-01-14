@@ -6,7 +6,7 @@ import q2 from '~/assets/q2.svg';
 const Container = styled.div`
 	max-width: 883px;
 	margin: 0 auto;
-	padding: 20px 0;
+	padding: 20px 10px;
 	position: relative;
 
 	&:before {
@@ -32,7 +32,7 @@ const Container = styled.div`
 	}
 
 	@media ${device.tablet} {
-		padding: 40px 0;
+		padding: 40px 10px;
 	}
 `;
 

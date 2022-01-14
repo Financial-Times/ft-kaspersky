@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import { useRouter } from 'next/router'
+
 import styled from "styled-components";
 import {
   Accordion,
@@ -9,7 +11,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import Metadata from "~/components/Metadata";
-import { ARTICLE_URL, REPORT_URL } from "~/config/utils";
+import {ARTICLE_URL, REPORT_URL, scrollToReport} from "~/config/utils";
 import { device } from "~/config/utils";
 import FtAnalytics from "~/config/FtAnalytics";
 import FtEvents from "~/config/FtEvents";
@@ -21,6 +23,7 @@ import ArticleContainer from "~/components/Articles/ArticleContainer";
 import Follow from "~/components/Follow";
 import Quote from "~/components/Quote";
 import BTTButton from "~/components/BTTButton";
+
 
 const Introduction = styled.div``;
 
@@ -85,7 +88,7 @@ const AccordionWrapper = styled.div`
 
     .accordion__button {
       max-width: 1220px;
-      padding: 20px 10px;
+      padding: 20px;
       margin: 0 auto;
       background-color: transparent;
       position: relative;
@@ -95,8 +98,11 @@ const AccordionWrapper = styled.div`
       display: flex;
 
       @media ${device.tablet} {
+        font-size: 40px;
+      }
+
+      @media ${device.laptop} {
         font-size: 50px;
-        padding: 20px;
       }
 
       span {
@@ -183,10 +189,27 @@ const Title = styled.p`
 `;
 
 export default function Home({ reportData, articleData }) {
+  const router = useRouter()
+  const [acc, setAcc] = useState(false)
   useEffect(() => {
     FtEvents();
     FtAnalytics();
-  }, []);
+    console.log(router.query.report)
+    const container = document.querySelector('#item-02')
+    if (router.query.report === 'true') {
+      scrollToReport()
+    }
+
+    if (router.query.research === 'true') {
+      setAcc(true)
+      container.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start",
+      });
+
+    }
+  }, [router]);
 
   return (
     <>
@@ -207,7 +230,7 @@ export default function Home({ reportData, articleData }) {
       <Introduction>
         <AccordionWrapper>
           <Accordion allowZeroExpanded>
-            <AccordionItem id="item-01">
+            <AccordionItem id="item-01" uuid="a">
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>01.</span>
@@ -244,7 +267,7 @@ export default function Home({ reportData, articleData }) {
                 </AccordionContainer>
               </AccordionItemPanel>
             </AccordionItem>
-            <AccordionItem id="item-02">
+            <AccordionItem id="item-02" uuid="b" {...(acc  && { dangerouslySetExpanded: true })} >
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>02.</span>
@@ -282,7 +305,8 @@ export default function Home({ reportData, articleData }) {
                 </AccordionContainer>
               </AccordionItemPanel>
             </AccordionItem>
-            <AccordionItem id="item-03">
+            <AccordionItem id="item-03" uuid="c"
+            >
               <AccordionItemHeading>
                 <AccordionItemButton>
                   <span>03.</span>

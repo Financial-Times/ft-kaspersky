@@ -21,6 +21,18 @@ const BttWrapper = styled.button`
 	border: none;
 	padding: 0;
 	cursor: pointer;
+	
+	path {
+		transition: fill 0.5s ease-in;
+
+	}
+	
+	&:hover {
+		path {
+			fill: #23D0AD;
+			transition: fill 0.5s ease-in;
+		}
+	}
 `;
 
 function scrollToTop() {
