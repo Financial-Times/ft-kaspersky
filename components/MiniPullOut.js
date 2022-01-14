@@ -146,7 +146,7 @@ const MiniPullOut = ({ data, id }) => {
                   );
                 });
               },
-              markers: true,
+              markers: false,
             },
           }}
         >
