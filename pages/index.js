@@ -21,6 +21,7 @@ import ArticleContainer from "~/components/Articles/ArticleContainer";
 import Follow from "~/components/Follow";
 import Quote from "~/components/Quote";
 import BTTButton from "~/components/BTTButton";
+import NextReport from "~/components/NextReport";
 
 const Introduction = styled.div``;
 

@@ -22,6 +22,7 @@ import Related from "~/components/Related";
 import BTTButton from "~/components/BTTButton";
 import MiniPullOut from "~/components/MiniPullOut";
 import Follow from "~/components/Follow";
+import NextReport from "~/components/NextReport";
 
 const ArticleWrapper = styled.div``;
 
@@ -93,13 +94,13 @@ export default function ArticlePage({ post, related, articles }) {
             opt_in: true,
             token: "behaviouraladsOnsite:on",
           });
-          console.log("clicked");
         });
       }
     });
   }, []);
 
   const relatedItems = related.concat(articles);
+  const nextArticle = related.find((article) => article.id === post.next);
 
   return (
     <>
@@ -160,6 +161,7 @@ export default function ArticlePage({ post, related, articles }) {
           }
         })}
       </ArticleWrapper>
+      <NextReport data={nextArticle} />
       <Related data={relatedItems} />
       <Follow />
       <BTTButton />

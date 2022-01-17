@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Link from 'next/link';
+import styled from "styled-components";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -105,12 +105,13 @@ export default function Header() {
       </header>
 
       <div
-        className="o-header__drawer"
+        className="o-header__drawer o-header__drawer--closing"
         id="o-header-drawer"
         role="navigation"
         aria-label="Drawer menu"
         data-o-header-drawer=""
         data-o-header-drawer--no-js=""
+        aria-hidden="true"
       >
         <div className="o-header__drawer-inner">
           <div className="o-header__drawer-tools">
