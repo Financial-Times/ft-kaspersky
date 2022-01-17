@@ -30,55 +30,6 @@ const ReportWrapper = styled.div`
   }
 `;
 
-const ReportWrapperContent = styled.div`
-  max-width: 100%;
-  flex-basis: 100%;
-  padding: 0 10px;
-
-  @media ${device.tablet} {
-    flex-basis: 23%;
-    max-width: 23%;
-    padding-right: 20px;
-  }
-`;
-const ReportWrapperTitle = styled.h2`
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  color: #06a88e;
-  margin-top: 0;
-  position: relative;
-  padding-bottom: 15px;
-  font-size: 36px;
-  max-width: 250px;
-
-  @media ${device.tablet} {
-    font-size: 44px;
-    max-width: initial;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    width: 110px;
-    height: 2px;
-    background-color: #707070;
-  }
-`;
-
-const ReportWrapperDesc = styled.div`
-  font-weight: 300;
-  line-height: 1;
-  color: #333333;
-  font-size: 20px;
-
-  @media ${device.tablet} {
-    font-size: 24px;
-  }
-`;
-
 const ReportItemContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -91,8 +42,8 @@ const ReportItemContainer = styled.div`
 
   @media ${device.tablet} {
     grid-template-columns: 1fr 1fr;
-    flex-basis: 77%;
-    max-width: 77%;
+    flex-basis: 100%;
+    max-width: 100%;
     padding: initial;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
@@ -153,15 +104,6 @@ const ReportContainer = ({ data }) => {
         <span>Report</span>
       </ReportTitle>
       <ReportWrapper id="reportContainer">
-        <ReportWrapperContent>
-          <ReportWrapperTitle className={"reportTitle"}>
-            Report Title
-          </ReportWrapperTitle>
-          <ReportWrapperDesc>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore.
-          </ReportWrapperDesc>
-        </ReportWrapperContent>
         <ReportItemContainer>
           {data.map((report, i) => {
             return <ReportItem key={i} data={report} link={report.type} />;

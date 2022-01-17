@@ -38,6 +38,7 @@ const Title = styled.div`
   line-height: 1;
   padding: 0 10px;
   margin-bottom: 20px;
+  font-style: italic;
 
 }
   @media ${device.mobileXL} {
@@ -62,7 +63,6 @@ const Graph = ({ data }) => {
   }, [router]);
   return (
     <Container>
-      <Title>{data.mainTitle}</Title>
       <Wrapper>
         <div
           className="infogram-embed tablet"
@@ -76,6 +76,7 @@ const Graph = ({ data }) => {
           data-type="interactive"
           data-title={data.title_mob}
         />
+        <Title>{data.mainTitle}</Title>
       </Wrapper>
     </Container>
   );

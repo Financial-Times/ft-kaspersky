@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styled from "styled-components";
-import {device, scrollToReport} from "~/config/utils";
+import { device, scrollToReport } from "~/config/utils";
 
 const HeroContainer = styled.div`
-  min-height: calc(100vh - 222px);
+  min-height: calc(80vh);
   position: relative;
 
   &:after {
@@ -31,27 +31,14 @@ const HeroContainer = styled.div`
 `;
 const HeroContent = styled.div`
   color: white;
+  width: 100%;
   z-index: 2;
+  position: relative;
   line-height: 1;
   width: 100%;
-  max-width: 800px;
-  position: absolute;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 10px;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -70%);
-
-  @media ${device.tablet} {
-    top: 50%;
-    right: 100%;
-    transform: translate(100%, -60%);
-  }
-
-  @media ${device.laptop} {
-    top: 50%;
-    right: 60%;
-    transform: translate(50%, -60%);
-  }
 `;
 
 const HeroTitle = styled.div`
@@ -59,11 +46,18 @@ const HeroTitle = styled.div`
   text-transform: uppercase;
   font-weight: 400;
   margin-bottom: 20px;
-  font-size: 55px;
+  font-size: 40px;
+
+  @media ${device.mobileM} {
+    font-size: 55px;
+  }
 
   @media ${device.tablet} {
-    font-size: 85px;
     margin-bottom: 40px;
+  }
+
+  @media ${device.laptop} {
+    font-size: 85px;
   }
 `;
 
@@ -85,10 +79,15 @@ const HeroScrollContainer = styled.div`
 const HeroScrollImage = styled.div`
   margin-bottom: 20px;
   cursor: pointer;
-
+  height: 40px;
+  width: 40px;
   @media ${device.tablet} {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
+  }
+
+  svg {
+    width: 100%;
   }
 
   &:hover {
@@ -105,21 +104,31 @@ const HeroScrollImage = styled.div`
 `;
 
 const HeroDesc = styled.div`
-  font-size: 25px;
+  font-size: 20px;
 
-  @media ${device.tablet} {
-    font-size: 36px;
+  @media ${device.laptop} {
+    font-size: 25px;
+  }
+`;
+
+const TextContainer = styled.div`
+  max-width: 650px;
+  padding: 150px 0;
+
+  @media ${device.laptop} {
+    padding: 100px 0;
   }
 `;
 
 const HeroBanner = ({ title, desc, img }) => {
-
   return (
     <HeroContainer>
       <Image priority={true} src={img} alt="hero" layout="fill" />
       <HeroContent>
-        <HeroTitle>{title}</HeroTitle>
-        {desc && <HeroDesc>{desc}</HeroDesc>}
+        <TextContainer>
+          <HeroTitle>{title}</HeroTitle>
+          {desc && <HeroDesc>{desc}</HeroDesc>}
+        </TextContainer>
       </HeroContent>
       <HeroScrollContainer>
         <HeroScrollImage onClick={() => scrollToReport()}>

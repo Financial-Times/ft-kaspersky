@@ -130,7 +130,7 @@ const ReportItem = ({ data, link }) => {
         <ItemContentWrapper>
           <ItemTitle>{data.metaData.title}</ItemTitle>
 
-          <a href={`/${link}/${data.id}`} passHref>
+          <a href={`/${link}/${data.id}`}>
             <ItemCta>Read now</ItemCta>
           </a>
         </ItemContentWrapper>

@@ -116,31 +116,14 @@ const Stats = ({ data }) => {
   return (
     <Container>
       <Wrapper data-long={data.long}>
-        <Tween
-          duration={10000}
-          to={{
-            scrollTrigger: {
-              trigger: `#stats`,
-              start: "-100px 100px",
-              end: "bottom 0",
-              scrub: 0.5,
-              once: true,
-              onEnter: () => {
-                animateValue("percentage", 0, data.percent, 2500);
-              },
-              markers: false,
-            },
-          }}
-        >
-          <StatContainer id="stats">
-            <StatCircle>
-              <span id="percentage">0</span>
-              <span>%</span>
-            </StatCircle>
-            {data.content.length && <StatContent>{data.content}</StatContent>}
-          </StatContainer>
-          <Content dangerouslySetInnerHTML={{ __html: data.before }} />
-        </Tween>
+        <StatContainer id="stats">
+          <StatCircle>
+            <span id="percentage">{data.percent}</span>
+            <span>%</span>
+          </StatCircle>
+          {data.content.length && <StatContent>{data.content}</StatContent>}
+        </StatContainer>
+        <Content dangerouslySetInnerHTML={{ __html: data.before }} />
       </Wrapper>
     </Container>
   );

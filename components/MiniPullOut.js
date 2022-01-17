@@ -127,44 +127,20 @@ const MiniPullOut = ({ data, id }) => {
   return (
     <Container data-flip={data.invert}>
       <Wrapper>
-        <Tween
-          duration={10000}
-          to={{
-            scrollTrigger: {
-              trigger: `#mini-${id}`,
-              start: "-400px 100px",
-              end: "bottom 0",
-              scrub: 0.5,
-              once: true,
-              onEnter: () => {
-                return data.circles.map((item) => {
-                  animateValue(
-                    `percent-${id}-${item.id}`,
-                    0,
-                    item.perCent,
-                    2500
-                  );
-                });
-              },
-              markers: false,
-            },
-          }}
-        >
-          <Quote>{data.quote}.</Quote>
-          <CircleContainer id={`mini-${id}`}>
-            {data.circles.map((item, i) => {
-              return (
-                <CircleWrapper key={i}>
-                  <CircleSpan>
-                    <Circle id={`percent-${id}-${item.id}`}>0</Circle>
-                    <span>%</span>
-                  </CircleSpan>
-                  <CircleTitle>{item.title}</CircleTitle>
-                </CircleWrapper>
-              );
-            })}
-          </CircleContainer>
-        </Tween>
+        <Quote>{data.quote}.</Quote>
+        <CircleContainer id={`mini-${id}`}>
+          {data.circles.map((item, i) => {
+            return (
+              <CircleWrapper key={i}>
+                <CircleSpan>
+                  <Circle>{item.perCent}</Circle>
+                  <span>%</span>
+                </CircleSpan>
+                <CircleTitle>{item.title}</CircleTitle>
+              </CircleWrapper>
+            );
+          })}
+        </CircleContainer>
       </Wrapper>
     </Container>
   );

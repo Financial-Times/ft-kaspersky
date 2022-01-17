@@ -163,8 +163,7 @@ const ArticleItem = ({ data }) => {
           <span>Read Time: {data.time} mins</span>
         </ContentReadTime>
         <ContentTitle>{data.metaData.title}</ContentTitle>
-        <ContentDesc>{data.metaData.desc}</ContentDesc>
-        <a href={`/article/${data.id}`} passHref>
+        <a href={`/article/${data.id}`}>
           <ContentButton>Read now</ContentButton>
         </a>
       </Content>
