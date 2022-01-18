@@ -17,8 +17,7 @@ const HeroContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.4);
 
     @media ${device.tablet} {
-      background-color: rgba(0, 0, 0, 0.2);
-      min-height: calc(100vh - 245px);
+      background-color: rgba(0, 0, 0, 0.5);
     }
   }
 

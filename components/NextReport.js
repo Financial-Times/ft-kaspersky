@@ -20,7 +20,7 @@ const Container = styled.div`
   }
   @media ${device.tablet} {
     max-width: 350px;
-    margin-left: auto;
+    margin: 0 auto;
   }
 `;
 
@@ -108,41 +108,44 @@ const ContentWrapper = styled.div`
 `;
 
 const NextReport = ({ data }) => {
-  console.log(data);
-  return (
-    <Wrap>
-      <Container>
-        <a href={data.metaData.articleUrl}>
-          <Wrapper>
-            <ImageWrapper>
-              <ItemSection>
-                Step <span>{data.section}</span>
-              </ItemSection>
-              <Image src={data.metaData.articleImage} layout={"fill"} />
-            </ImageWrapper>
-            <Content>
-              <ContentWrapper>
-                <span>Continue Reading</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="43.683"
-                  height="35"
-                  viewBox="0 0 43.683 35"
-                >
-                  <path
-                    id="arrow-next"
-                    d="M0,17.456l3.069,3.069L15.35,8.158V43.683h4.474V8.07L32.018,20.439,35,17.456,17.544,0Z"
-                    transform="translate(43.683) rotate(90)"
-                    fill="#00a88e"
-                  />
-                </svg>
-              </ContentWrapper>
-            </Content>
-          </Wrapper>
-        </a>
-      </Container>
-    </Wrap>
-  );
+  if (data.section === 1) {
+    return null;
+  } else {
+    return (
+      <Wrap>
+        <Container>
+          <a href={data.metaData.articleUrl}>
+            <Wrapper>
+              <ImageWrapper>
+                <ItemSection>
+                  Step <span>{data.section}</span>
+                </ItemSection>
+                <Image src={data.metaData.articleImage} layout={"fill"} />
+              </ImageWrapper>
+              <Content>
+                <ContentWrapper>
+                  <span>Continue Reading</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="43.683"
+                    height="35"
+                    viewBox="0 0 43.683 35"
+                  >
+                    <path
+                      id="arrow-next"
+                      d="M0,17.456l3.069,3.069L15.35,8.158V43.683h4.474V8.07L32.018,20.439,35,17.456,17.544,0Z"
+                      transform="translate(43.683) rotate(90)"
+                      fill="#00a88e"
+                    />
+                  </svg>
+                </ContentWrapper>
+              </Content>
+            </Wrapper>
+          </a>
+        </Container>
+      </Wrap>
+    );
+  }
 };
 
 export default NextReport;

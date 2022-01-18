@@ -7,7 +7,7 @@ const Container = styled.div`
   margin-bottom: 50px;
   @media ${device.tablet} {
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 25px;
   }
 `;
 

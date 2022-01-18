@@ -100,9 +100,6 @@ const Container = styled.div`
 const ReportContainer = ({ data }) => {
   return (
     <Container>
-      <ReportTitle>
-        <span>Report</span>
-      </ReportTitle>
       <ReportWrapper id="reportContainer">
         <ReportItemContainer>
           {data.map((report, i) => {

@@ -105,7 +105,7 @@ export default function Header() {
       </header>
 
       <div
-        className="o-header__drawer o-header__drawer--closing"
+        className="o-header__drawer"
         id="o-header-drawer"
         role="navigation"
         aria-label="Drawer menu"

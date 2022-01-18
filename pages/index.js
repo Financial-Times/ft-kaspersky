@@ -203,14 +203,36 @@ export default function Home({ reportData, articleData }) {
     }
   }, [router]);
 
+  const metaData = {
+    title: "THREE STEPS TO SUPERIOR CYBER SECURITY",
+    desc: "New research from Kaspersky shows that diversity, collaboration and training can help protect enterprise from major cyber threats.",
+    contentType: "article",
+    publicationDate: "2022-01-18",
+    campaignName: "",
+    advertiserName: "Kaspersky",
+    primaryIndustryAdvertiser: "Technology",
+    contentAuthor: "Longitude",
+    brandedContent: true,
+    contentStyle: "thought leadership",
+    primaryTopic: "Technology",
+    secondaryTopic: "Cyber Security",
+    adbookId: 317877,
+    hasVideo: true,
+    videoStyle: null,
+    pageDesignType: "bespoke",
+    articleImage:
+      "https://ft.com/partnercontent/kaspersky/images/heroAmended.jpg",
+    articleUrl: "https://kaspersky.ft.com//",
+  };
+
   return (
     <>
       <Head>
         <title>
-          THREE STEPS TO SUPERIOR CYBER SECURITY - Financial Times - Partner
+          Three Steps To Superior Cyber Security - Financial Times - Partner
           Content by Kaspersky
         </title>
-        <Metadata title={true} data={null} />
+        <Metadata title={true} data={metaData} />
       </Head>
       <HeroBanner
         img={"https://ft.com/partnercontent/kaspersky/images/heroAmended.jpg"}
@@ -227,7 +249,7 @@ export default function Home({ reportData, articleData }) {
                 <AccordionItemButton>
                   <span>01.</span>
                   <div className="heading">
-                    The threat of cyber attack weighs heavily
+                    The threat of cyber attacks weighs heavily
                   </div>
                   <div className="state">
                     <span className="line" />
