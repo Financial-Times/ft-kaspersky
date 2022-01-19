@@ -47,7 +47,7 @@ const HeroImgWrapper = styled.div`
   display: block;
   padding-bottom: 70%;
   @media ${device.tablet} {
-    padding-bottom: 40.4375%;
+    padding-bottom: 23.4375%;
   }
 
   img {

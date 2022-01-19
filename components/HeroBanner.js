@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { device, scrollToReport } from "~/config/utils";
 
 const HeroContainer = styled.div`
-  min-height: calc(80vh);
+  min-height: calc(60vh);
   position: relative;
 
   &:after {
@@ -38,6 +38,9 @@ const HeroContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
+
+  @media ${device.tablet} {
+  }
 `;
 
 const HeroTitle = styled.div`
@@ -111,11 +114,11 @@ const HeroDesc = styled.div`
 `;
 
 const TextContainer = styled.div`
-  max-width: 650px;
-  padding: 150px 0;
+  max-width: 450px;
+  padding: 100px 0;
 
   @media ${device.laptop} {
-    padding: 100px 0;
+    max-width: 600px;
   }
 `;
 

@@ -139,7 +139,6 @@ export default function ArticlePage({ post, related, articles }) {
       <Home title={post.section} report={true} />
       <ArticleWrapper className="articleWrapper">
         <ArticleTitle>{post.metaData.title}</ArticleTitle>
-        {/* <ReadTime time={post.time} /> */}
         {post.content.map((el) => {
           switch (el.type) {
             case "content":
@@ -163,8 +162,8 @@ export default function ArticlePage({ post, related, articles }) {
       </ArticleWrapper>
       <NextReport data={nextArticle} />
       <Related data={relatedItems} />
-      <Follow />
       <BTTButton />
+      <Follow />
     </>
   );
 }

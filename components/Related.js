@@ -10,7 +10,6 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const RelatedContainer = styled.div`
   padding: 70px 20px 30px 20px;
-  margin-bottom: 30px;
   background-color: #f8f8f8;
   .reportItem {
     .itemContent {

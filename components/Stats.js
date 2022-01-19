@@ -53,6 +53,7 @@ const StatContainer = styled.div`
   @media ${device.tablet} {
     flex-basis: 42%;
     max-width: 42%;
+    padding: 35px 10px;
   }
 
   position: relative;
@@ -105,7 +106,6 @@ const StatContent = styled.div`
   font-size: 24px;
   line-height: 1.1;
   padding-right: 15px;
-  padding-bottom: 30px;
 
   @media ${device.tablet} {
     font-size: 36px;
