@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps, router }) {
   ReactGA.initialize("UA-93924635-43");
 
   useEffect(() => {
-    TagManager.initialize({ gtmId: "GTM-T66ZTL5" });
+    TagManager.initialize({ gtmId: "GTM-NHBRDKR" });
   }, []);
 
   useEffect(() => {
